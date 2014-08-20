@@ -1,0 +1,10 @@
+marklogic:
+  host: localhost
+  port: 8005
+  username: admin
+  password: test123
+
+spring:
+  freemarker:
+    # Reload FreeMarker templates without restarting the container
+    cache: false
