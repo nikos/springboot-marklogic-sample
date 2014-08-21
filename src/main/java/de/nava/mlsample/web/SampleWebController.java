@@ -7,13 +7,13 @@ import java.util.Date;
 import java.util.Map;
 
 @Controller
-public class SampleFreemarkerController {
+public class SampleWebController {
 
     @RequestMapping("/")
     public String welcome(Map<String, Object> model) {
         model.put("time", new Date());
         model.put("message", "Just a test");
-        return "welcome";
+        return "index";
     }
 
 }

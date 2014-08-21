@@ -26,7 +26,7 @@ import static org.junit.Assert.assertTrue;
 @WebAppConfiguration
 @IntegrationTest("server.port=0")
 @DirtiesContext
-public class SampleFreemarkerApplicationTests {
+public class SampleWebControllerIT {
 
     @Value("${local.server.port}")
     private int port;
@@ -36,7 +36,7 @@ public class SampleFreemarkerApplicationTests {
         ResponseEntity<String> entity = new TestRestTemplate().getForEntity("http://localhost:" + port, String.class);
         // TODO: add hamcrest contains string
         assertEquals(HttpStatus.OK, entity.getStatusCode());
-        assertTrue("Wrong body:\n" + entity.getBody(), entity.getBody().contains("FooBar"));
+        assertTrue("Wrong body:\n" + entity.getBody(), entity.getBody().contains("Message: Just a test"));
     }
 
     @Test
