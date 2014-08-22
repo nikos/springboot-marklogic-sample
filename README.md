@@ -11,21 +11,37 @@ I wanted to show case how easy and straight forward it is, and how less Java cod
 to get a small web application up and running.
 
 
-## Requirements
+## Software Requirements
 
-### MarkLogic server setup
+### MarkLogic Server
 
 * [Download MarkLogic server](http://developer.marklogic.com/products/marklogic-server) (you need to create an account 
   with the MarkLogic developer community)  
 
-* [Install, start and setup](http://docs.marklogic.com/guide/installation/procedures#id_28962) your MarkLogic server instance
+* [Install, start and setup](http://docs.marklogic.com/guide/installation/procedures#id_28962) your MarkLogic server instance,
+   
+* [Create a database and an associated REST API instance](http://developer.marklogic.com/learn/rest/setup),
+  you might consider leveraging [Roxy](https://github.com/marklogic/roxy) enabling you to easily spin up a new
+  database and REST endpoint from the command-line
 
-* [Create a database](http://developer.marklogic.com/learn/java/setup#create-a-database)
 
 ### Maven
 
-* To compile and start the application you require a Java Development Kit (JDK 7) as well
+To compile and start the application you require a Java Development Kit (JDK 7) as well
 as [Maven](http://maven.apache.org/download.cgi) (version 3) 
+
+### Bower
+
+For managing client-side dependencies (in this sample application: AngularJS and Bootstrap),
+please install [bower](http://bower.io/) if you haven't already. This requires **Node.js** 
+and **NPM**. To install both, the easiest is to follow the instructions on the **[Node.js homepage](http://nodejs.org)**.
+
+    npm install -g bower
+
+Then we need to run Bower (from this project's root directory) the first time to download client-side dependencies
+in the proper directory:
+
+    bower install
 
 
 ## Try it out
