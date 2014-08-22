@@ -1,0 +1,26 @@
+{
+  "name": "springboot-marklogic-sample",
+  "version": "0.1.0",
+  "homepage": "https://github.com/nikos/springboot-marklogic-sample",
+  "authors": [
+    "Niko Schmuck <n.schmuck@nava.de>"
+  ],
+  "description": "Fancy starter application",
+  "license": "Apache License 2.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.22",
+    "angular-route": "~1.2.22",
+    "angular-resource": "~1.2.22",
+    "angular-toastr": "~0.4.0",
+    "bootstrap": "~3.2.0"
+  }
+}
