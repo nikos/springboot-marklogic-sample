@@ -10,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -62,9 +63,14 @@ public class SampleRESTwithJSONController {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public List<Product> searchProducts(@RequestParam(required = true, value = "name") String name) {
-        logger.info("Lookup products by name: {}", name);
-        return productRepositoryJSON.findByName(name);
+    public List<Product> searchProducts(@RequestParam(required = false, value = "name") String name) {
+        if (StringUtils.isEmpty(name)) {
+            logger.info("Lookup all {} products...", productRepositoryJSON.count());
+            return productRepositoryJSON.findAll();
+        } else {
+            logger.info("Lookup products by name: {}", name);
+            return productRepositoryJSON.findByName(name);
+        }
     }
 
     // Example on how to register custom exception handler in case lookup does not return

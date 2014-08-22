@@ -18,8 +18,10 @@ public interface ProductRepository {
 
     Product findBySku(Long sku);
 
+    List<Product> findAll();
+
     List<Product> findByName(String name);
 
-    //Long count();
+    Long count();
 
 }

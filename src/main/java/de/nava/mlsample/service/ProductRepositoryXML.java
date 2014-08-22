@@ -1,11 +1,10 @@
 package de.nava.mlsample.service;
 
 import com.marklogic.client.document.XMLDocumentManager;
+import com.marklogic.client.io.DocumentMetadataHandle;
 import com.marklogic.client.io.JAXBHandle;
 import com.marklogic.client.io.SearchHandle;
-import com.marklogic.client.query.KeyValueQueryDefinition;
-import com.marklogic.client.query.MatchDocumentSummary;
-import com.marklogic.client.query.QueryManager;
+import com.marklogic.client.query.*;
 import de.nava.mlsample.domain.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +28,8 @@ public class ProductRepositoryXML implements ProductRepository {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductRepositoryXML.class);
 
+    public static final String COLLECTION_REF = "/products.xml";
+
     @Autowired
     protected QueryManager queryManager;
 
@@ -37,9 +38,13 @@ public class ProductRepositoryXML implements ProductRepository {
 
     @Override
     public void add(Product product) {
+        // Add this document to a dedicated collection for later retrieval
+        DocumentMetadataHandle metadata = new DocumentMetadataHandle();
+        metadata.getCollections().add(COLLECTION_REF);
+
         JAXBHandle contentHandle = getProductHandle();
         contentHandle.set(product);
-        xmlDocumentManager.write(getDocId(product.getSku()), contentHandle);
+        xmlDocumentManager.write(getDocId(product.getSku()), metadata, contentHandle);
     }
 
     @Override
@@ -52,6 +57,26 @@ public class ProductRepositoryXML implements ProductRepository {
         JAXBHandle contentHandle = getProductHandle();
         JAXBHandle result = xmlDocumentManager.read(getDocId(sku), contentHandle);
         return (Product) result.get(Product.class);
+    }
+
+    @Override
+    public Long count() {
+        StructuredQueryBuilder sb = queryManager.newStructuredQueryBuilder();
+        StructuredQueryDefinition criteria = sb.collection(COLLECTION_REF);
+
+        SearchHandle resultsHandle = new SearchHandle();
+        queryManager.search(criteria, resultsHandle);
+        return resultsHandle.getTotalResults();
+    }
+
+    @Override
+    public List<Product> findAll() {
+        StructuredQueryBuilder sb = queryManager.newStructuredQueryBuilder();
+        StructuredQueryDefinition criteria = sb.collection(COLLECTION_REF);
+
+        SearchHandle resultsHandle = new SearchHandle();
+        queryManager.search(criteria, resultsHandle);
+        return getResultListFor(resultsHandle);
     }
 
     @Override

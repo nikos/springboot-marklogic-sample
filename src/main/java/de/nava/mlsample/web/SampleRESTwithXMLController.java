@@ -6,9 +6,15 @@ import de.nava.mlsample.service.ProductRepositoryXML;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.List;
 
 @RestController
 public class SampleRESTwithXMLController {
@@ -23,9 +29,15 @@ public class SampleRESTwithXMLController {
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_XML_VALUE
     )
-    @ResponseStatus(HttpStatus.CREATED)
-    public void createProduct(@RequestBody Product product) {
+    public ResponseEntity<String> createProduct(@RequestBody Product product, UriComponentsBuilder builder) {
         productRepositoryXML.add(product);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(
+                builder.path("/products/{id}.xml")
+                        .buildAndExpand(product.getSku()).toUri());
+
+        return new ResponseEntity<>("", headers, HttpStatus.CREATED);
     }
 
     @RequestMapping(
@@ -51,10 +63,17 @@ public class SampleRESTwithXMLController {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_XML_VALUE
     )
-    public Products searchProducts(@RequestParam(required=true, value="name") String name) {
-        logger.info("Lookup products by name: {}", name);
+    public Products searchProducts(@RequestParam(required=false, value="name") String name) {
+        List<Product> products;
+        if (StringUtils.isEmpty(name)) {
+            logger.info("Lookup all {} products...", productRepositoryXML.count());
+            products = productRepositoryXML.findAll();
+        } else {
+            logger.info("Lookup products by name: {}", name);
+            products = productRepositoryXML.findByName(name);
+        }
         Products result = new Products();
-        result.setProducts(productRepositoryXML.findByName(name));
+        result.setProducts(products);
         return result;
     }
 }
