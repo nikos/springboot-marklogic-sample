@@ -2,7 +2,7 @@ marklogic:
   host: localhost
   port: 8005
   username: admin
-  password: test123
+  password: admin
 
 spring:
   freemarker:
