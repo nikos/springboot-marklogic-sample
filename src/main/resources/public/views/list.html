@@ -1,0 +1,12 @@
+<h2>
+    Products <a class="btn btn-primary pull-right" href="#/products/new"><i
+        class="icon-plus-sign icon-white"></i> Create New Product</a>
+</h2>
+
+<table class="table table-striped">
+    <tr ng-repeat="product in products">
+        <td>{{product.sku}}</td>
+        <td><a href="#/products/{{product.sku}}">{{product.name}}</a></td>
+        <td>{{product.description}}</td>
+    </tr>
+</table>
