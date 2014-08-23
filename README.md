@@ -1,8 +1,10 @@
+# SpringBoot MarkLogic Sample [![Build Status](https://travis-ci.org/nikos/springboot-marklogic-sample.svg?branch=master)](http://travis-ci.org/nikos/springboot-marklogic-sample)
+
 ## Goal
 
 Build a simple (thin) web application with [Spring Boot](http://projects.spring.io/spring-boot/) to 
 demonstrate how to access domain-specific data (for the purpose of this demo: products) 
-stored MarkLogic via its Java API. According to [Pivotals web site](https://spring.io/blog/2013/08/06/spring-boot-simplifying-spring-for-everyone)
+from MarkLogic via its Java API. According to [Pivotals web site](https://spring.io/blog/2013/08/06/spring-boot-simplifying-spring-for-everyone)
 > Spring Boot aims to make it easy to create Spring-powered, production-grade applications and services with minimum fuss.
 
 To interact easily with the exposed REST endpoints there is a small AngularJS web client sitting on top.
@@ -101,27 +103,22 @@ The following examples use [httpie](http://httpie.org) as user-friendly cURL rep
 
 #### Create a new product
 
-    $ http POST localhost:8080/products sku=4711 name='Super Duper' description='with bars...'
+    http POST localhost:8080/products sku=4711 name='Super Duper' description='with bars...'
 
 Look out for the Location HTTP Header allowing to retrieve this entity to a later point in 
 time again.
 
 #### Retrieve a single product
 
-    $ http GET localhost:8080/products/4711.json
+    http GET localhost:8080/products/4711.json
 
 #### Search for products contain a certain string
 
-    $ http GET localhost:8080/products.json name=='Super Duper'
+    http GET localhost:8080/products.json name=='Super Duper'
 
 #### Delete the product
 
-    $ http DELETE localhost:8080/products/4711.json
-
-
-## Current Build Status
-
-![Current Build Status](https://travis-ci.org/nikos/springboot-marklogic-sample.svg?branch=master)
+    http DELETE localhost:8080/products/4711.json
 
 
 ## Further reading
