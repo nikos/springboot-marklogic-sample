@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Springboot-marklogic-sample by nikos</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Springboot-marklogic-sample</h1>
+        <h2>Sample web application integrating MarkLogic 7 Java Client API with Spring Boot.</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/nikos/springboot-marklogic-sample/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/nikos/springboot-marklogic-sample/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/nikos/springboot-marklogic-sample" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h2>
+<a name="goal" class="anchor" href="#goal"><span class="octicon octicon-link"></span></a>Goal</h2>
+
+<p>Build a simple (thin) web application with <a href="http://projects.spring.io/spring-boot/">Spring Boot</a> to 
+demonstrate how to access domain-specific data (for the purpose of this demo: products) 
+stored MarkLogic via its Java API. According to <a href="https://spring.io/blog/2013/08/06/spring-boot-simplifying-spring-for-everyone">Pivotals web site</a></p>
+
+<blockquote>
+<p>Spring Boot aims to make it easy to create Spring-powered, production-grade applications and services with minimum fuss.</p>
+</blockquote>
+
+<p>To interact easily with the exposed REST endpoints there is a small AngularJS web client sitting on top.</p>
+
+<h2>
+<a name="motivation" class="anchor" href="#motivation"><span class="octicon octicon-link"></span></a>Motivation</h2>
+
+<p>Since <a href="http://www.marklogic.com/press-releases/marklogic-simplifies-development-of-enterprise-ready-applications-free-developer-license-for-marklogic-enterprise-edition-now-available/">February 2013</a> 
+everyone can get a <a href="http://developer.marklogic.com/free-developer">free MarkLogic Developer License</a>, 
+which gives access to a powerful (= "Enterprise") NoSQL database and application platform, allowing
+to store and index different kind of document types and search by various ways to quickly drill-down
+to data you are looking for. Note: This demo does only touch the tip of the iceberg regarding
+<a href="http://www.marklogic.com/what-is-marklogic/enterprise-nosql/">MarkLogic's (search) features</a>, 
+it is really meant only to give you an idea how easy it is building applications with it.</p>
+
+<p>As a Java developer I thought it was about time to start learning about MarkLogic server
+and how to use the Java API to deal with JSON and XML documents in regards to creation,
+binding and also query capabilites. With the recent advent of <a href="http://projects.spring.io/spring-boot/">Spring Boot</a>
+I wanted to show case how easy and straight forward it is, and how less Java code it requires,
+to get a small web application up and running.</p>
+
+<h2>
+<a name="software-requirements" class="anchor" href="#software-requirements"><span class="octicon octicon-link"></span></a>Software Requirements</h2>
+
+<h3>
+<a name="marklogic-server" class="anchor" href="#marklogic-server"><span class="octicon octicon-link"></span></a>MarkLogic Server</h3>
+
+<ul>
+<li><p><a href="http://developer.marklogic.com/products/marklogic-server">Download MarkLogic server</a> (you need to create an account 
+with the MarkLogic developer community)  </p></li>
+<li><p><a href="http://docs.marklogic.com/guide/installation/procedures#id_28962">Install, start and setup</a> your MarkLogic server instance,</p></li>
+<li><p><a href="http://developer.marklogic.com/learn/rest/setup">Create a database and an associated REST API instance</a>,
+you might consider leveraging <a href="https://github.com/marklogic/roxy">Roxy</a> enabling you to easily spin up a new
+database and REST endpoint from the command-line</p></li>
+</ul><h3>
+<a name="maven" class="anchor" href="#maven"><span class="octicon octicon-link"></span></a>Maven</h3>
+
+<p>To compile and start the application you require a Java Development Kit (JDK 7) as well
+as <a href="http://maven.apache.org/download.cgi">Maven</a> (version 3) </p>
+
+<h3>
+<a name="bower" class="anchor" href="#bower"><span class="octicon octicon-link"></span></a>Bower</h3>
+
+<p>For managing client-side dependencies (in this sample application: AngularJS and Bootstrap),
+please install <a href="http://bower.io/">bower</a> if you haven't already. This requires <strong>Node.js</strong> 
+and <strong>NPM</strong>. To install both, the easiest is to follow the instructions on the <strong><a href="http://nodejs.org">Node.js homepage</a></strong>.</p>
+
+<pre><code>npm install -g bower
+</code></pre>
+
+<p>Then we need to run Bower (from this project's root directory) the first time to download client-side dependencies
+in the proper directory:</p>
+
+<pre><code>bower install
+</code></pre>
+
+<h2>
+<a name="try-it-out" class="anchor" href="#try-it-out"><span class="octicon octicon-link"></span></a>Try it out</h2>
+
+<p>First you need to adjust the configuration file which holds specifics about
+how your MarkLogic server can be connected to, the easiest way is by copying
+the file and modifying the connection string according to your settings:</p>
+
+<pre><code>cp src/main/resources/application-sample.yml src/main/resources/application.yml
+</code></pre>
+
+<p>To give the sample web application a spin, check out the sources from github 
+and start the application directly from the command-line by executing:</p>
+
+<pre><code>mvn spring-boot:run
+</code></pre>
+
+<p>If you want to open the sources with your favorite IDE, you might want to </p>
+
+<pre><code>mvn eclipse:eclipse
+mvn idea:idea
+</code></pre>
+
+<p>To start the app in debug mode (Port 5005 in this example), run:</p>
+
+<pre><code>mvn spring-boot:run -Drun.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
+</code></pre>
+
+<h3>
+<a name="enable-auto-refresh" class="anchor" href="#enable-auto-refresh"><span class="octicon octicon-link"></span></a>Enable auto-refresh:</h3>
+
+<p>Using spring-loaded (see also <a href="https://github.com/spring-projects/spring-boot/issues/887">https://github.com/spring-projects/spring-boot/issues/887</a>)
+it is possible to some degree to exchange the recompile class file while 
+your application stays up running.</p>
+
+<p>Set it up under VM options in your IDE (make auto-compile after save is working):</p>
+
+<pre><code>-javaagent:/path/to/springloaded-1.2.0.RELEASE.jar -noverify
+</code></pre>
+
+<h3>
+<a name="interact-with-the-rest-endpoints" class="anchor" href="#interact-with-the-rest-endpoints"><span class="octicon octicon-link"></span></a>Interact with the REST endpoints</h3>
+
+<p>The following examples use <a href="http://httpie.org">httpie</a> as user-friendly cURL replacement.</p>
+
+<h4>
+<a name="create-a-new-product" class="anchor" href="#create-a-new-product"><span class="octicon octicon-link"></span></a>Create a new product</h4>
+
+<pre><code>$ http POST localhost:8080/products sku=4711 name='Super Duper' description='with bars...'
+</code></pre>
+
+<p>Look out for the Location HTTP Header allowing to retrieve this entity to a later point in 
+time again.</p>
+
+<h4>
+<a name="retrieve-a-single-product" class="anchor" href="#retrieve-a-single-product"><span class="octicon octicon-link"></span></a>Retrieve a single product</h4>
+
+<pre><code>$ http GET localhost:8080/products/4711.json
+</code></pre>
+
+<h4>
+<a name="search-for-products-contain-a-certain-string" class="anchor" href="#search-for-products-contain-a-certain-string"><span class="octicon octicon-link"></span></a>Search for products contain a certain string</h4>
+
+<pre><code>$ http GET localhost:8080/products.json name=='Super Duper'
+</code></pre>
+
+<h4>
+<a name="delete-the-product" class="anchor" href="#delete-the-product"><span class="octicon octicon-link"></span></a>Delete the product</h4>
+
+<pre><code>$ http DELETE localhost:8080/products/4711.json
+</code></pre>
+
+<h2>
+<a name="current-build-status" class="anchor" href="#current-build-status"><span class="octicon octicon-link"></span></a>Current Build Status</h2>
+
+<p><img src="https://travis-ci.org/nikos/springboot-marklogic-sample.svg?branch=master" alt="Current Build Status"></p>
+
+<h2>
+<a name="further-reading" class="anchor" href="#further-reading"><span class="octicon octicon-link"></span></a>Further reading</h2>
+
+<ul>
+<li><p><a href="https://docs.marklogic.com/guide/java/intro">Introduction to the MarkLogic Java API</a></p></li>
+<li><p><a href="http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready">Spring Actuator: exposing metrics and allow to monitor the application easily</a></p></li>
+<li><p><a href="http://freemarker.org/">Freemarker: template engine</a></p></li>
+</ul><h2>
+<a name="feedback" class="anchor" href="#feedback"><span class="octicon octicon-link"></span></a>Feedback</h2>
+
+<p>In case of any questions or suggestions please get into contact 
+with the author via <a href="mailto:niko%5Bat%5Dnava%5Bdot%5Dde">email</a>.</p>
+      </section>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-54116666-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
