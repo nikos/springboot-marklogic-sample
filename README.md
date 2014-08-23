@@ -1,8 +1,22 @@
-## Background
+## Goal
+
+Build a simple (thin) web application with [Spring Boot](http://projects.spring.io/spring-boot/) to 
+demonstrate how to access domain-specific data (for the purpose of this demo: products) 
+stored MarkLogic via its Java API. According to [Pivotals web site](https://spring.io/blog/2013/08/06/spring-boot-simplifying-spring-for-everyone)
+> Spring Boot aims to make it easy to create Spring-powered, production-grade applications and services with minimum fuss.
+
+To interact easily with the exposed REST endpoints there is a small AngularJS web client sitting on top.
+
+
+## Motivation
 
 Since [February 2013](http://www.marklogic.com/press-releases/marklogic-simplifies-development-of-enterprise-ready-applications-free-developer-license-for-marklogic-enterprise-edition-now-available/) 
-every developer can get a [free MarkLogic Developer License](http://developer.marklogic.com/free-developer) 
-which gives access to a powerful (= "Enterprise") NoSQL database and application platform.
+everyone can get a [free MarkLogic Developer License](http://developer.marklogic.com/free-developer), 
+which gives access to a powerful (= "Enterprise") NoSQL database and application platform, allowing
+to store and index different kind of document types and search by various ways to quickly drill-down
+to data you are looking for. Note: This demo does only touch the tip of the iceberg regarding
+[MarkLogic's (search) features](http://www.marklogic.com/what-is-marklogic/enterprise-nosql/), 
+it is really meant only to give you an idea how easy it is building applications with it.
 
 As a Java developer I thought it was about time to start learning about MarkLogic server
 and how to use the Java API to deal with JSON and XML documents in regards to creation,
@@ -76,7 +90,7 @@ your application stays up running.
 
 Set it up under VM options in your IDE (make auto-compile after save is working):
 
-    -javaagent:/Users/niko/.m2/repository/org/springframework/springloaded/1.2.0.RELEASE/springloaded-1.2.0.RELEASE.jar -noverify
+    -javaagent:/path/to/springloaded-1.2.0.RELEASE.jar -noverify
 
 
 
@@ -103,6 +117,11 @@ time again.
 #### Delete the product
 
     $ http DELETE localhost:8080/products/4711.json
+
+
+## Current Build Status
+
+![Current Build Status](https://travis-ci.org/nikos/springboot-marklogic-sample.svg?branch=master)
 
 
 ## Further reading
