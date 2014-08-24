@@ -11,8 +11,7 @@ public class SampleWebController {
 
     @RequestMapping("/")
     public String welcome(Map<String, Object> model) {
-        model.put("time", new Date());
-        model.put("message", "Just a test");
+        model.put("now", new Date());
         return "index";
     }
 

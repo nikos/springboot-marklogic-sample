@@ -1,0 +1,46 @@
+[
+    {
+        "sku": "1001",
+        "name": "Everyday Italian",
+        "description": "Author: Giada De Laurentiis",
+        "categories": [
+            "book",
+            "cooking"
+        ],
+        "year": "2005",
+        "price": "30.00"
+    },
+    {
+        "sku": "1002",
+        "name": "Harry Potter",
+        "description": "Author: J K. Rowling",
+        "categories": [
+            "book",
+            "children"
+        ],
+        "year": "2005",
+        "price": "29.99"
+    },
+    {
+        "sku": "1003",
+        "name": "XQuery Kick Start",
+        "description": "Authors: James McGovern, Per Bothner, Kurt Cagle, James Linn, Vaidyanathan Nagarajan",
+        "categories": [
+            "book",
+            "web"
+        ],
+        "year": "2003",
+        "price": "49.99"
+    },
+    {
+        "sku": "1004",
+        "name": "Learning XML",
+        "description": "Author: Erik T. Ray",
+        "categories": [
+            "book",
+            "web"
+        ],
+        "year": "2003",
+        "price": "39.95"
+    }
+]

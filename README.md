@@ -24,7 +24,8 @@ As a Java developer I thought it was about time to start learning about MarkLogi
 and how to use the Java API to deal with JSON and XML documents in regards to creation,
 binding and also query capabilites. With the recent advent of [Spring Boot](http://projects.spring.io/spring-boot/)
 I wanted to show case how easy and straight forward it is, and how less Java code it requires,
-to get a small web application up and running.
+to get a small (state-of-the-art with microservices, plus bells and whistles ready for production) 
+web application up and running.
 
 
 ## Software Requirements

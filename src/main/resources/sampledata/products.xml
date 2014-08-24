@@ -1,0 +1,42 @@
+<products>
+    <product sku="1001">
+        <name>Everyday Italian</name>
+        <description>Author: Giada De Laurentiis</description>
+        <categories>
+            <category>book</category>
+            <category>cooking</category>
+        </categories>
+        <year>2005</year>
+        <price>30.00</price>
+    </product>
+    <product sku="1002">
+        <name>Harry Potter</name>
+        <description>Author: J K. Rowling</description>
+        <categories>
+            <category>book</category>
+            <category>children</category>
+        </categories>
+        <year>2005</year>
+        <price>29.99</price>
+    </product>
+    <product sku="1003">
+        <name>XQuery Kick Start</name>
+        <description>Authors: James McGovern, Per Bothner, Kurt Cagle, James Linn, Vaidyanathan Nagarajan</description>
+        <categories>
+            <category>book</category>
+            <category>web</category>
+        </categories>
+        <year>2003</year>
+        <price>49.99</price>
+    </product>
+    <product sku="1004">
+        <name>Learning XML</name>
+        <description>Author: Erik T. Ray</description>
+        <categories>
+            <category>book</category>
+            <category>web</category>
+        </categories>
+        <year>2003</year>
+        <price>39.95</price>
+    </product>
+</products>

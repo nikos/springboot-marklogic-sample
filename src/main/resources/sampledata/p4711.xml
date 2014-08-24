@@ -1,6 +1,10 @@
-<product>
-  <sku>4711</sku>
-  <name>T-Shirt</name>
-  <description>... T-Shirt with some funny frogs</description>
+<product sku="4711">
+    <name>Kölnisch für Anfänger</name>
+    <description>The complete guide for beginners</description>
+    <categories>
+        <category>book</category>
+        <category>dialects</category>
+    </categories>
+    <year>2014</year>
+    <price>14.00</price>
 </product>
-

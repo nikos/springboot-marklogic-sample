@@ -1,6 +1,10 @@
 package de.nava.mlsample.domain;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement(name = "product")
@@ -10,8 +14,13 @@ public class Product {
     private String name;
     private String description;
     private Double price;
-    private List<String> tags;
+    private int year;
 
+    private List<String> categories = new ArrayList<>();
+
+    // ~~
+
+    @XmlAttribute(name="sku")
     public Long getSku() {
         return sku;
     }
@@ -44,12 +53,22 @@ public class Product {
         this.price = price;
     }
 
-    public List<String> getTags() {
-        return tags;
+    @XmlElementWrapper(name="categories")
+    @XmlElement(name="category")
+    public List<String> getCategories() {
+        return categories;
     }
 
-    public void setTags(List<String> tags) {
-        this.tags = tags;
+    public void setCategories(List<String> categories) {
+        this.categories = categories;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 
     @Override
