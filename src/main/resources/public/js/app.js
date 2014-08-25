@@ -1,7 +1,7 @@
 'use strict';
 
 var module = angular.module('MarkLogicRESTClientApp',
-    ['ngResource', 'ngRoute', 'toastr']
+    ['ngResource', 'ngRoute', 'toastr', 'ui.bootstrap']
 );
 
 module.config(function($routeProvider) {
@@ -44,6 +44,19 @@ module.factory('MarkLogicService', function ($resource) {
 
 module.controller('ProductListController', function($scope, MarkLogicService) {
     $scope.products = MarkLogicService.getProducts();
+});
+
+module.controller('ProductSearchController', function($scope, $http, MarkLogicService) {
+    $scope.findMatchingProducts = function (val) {
+        return MarkLogicService.getProducts({name: val}).$promise.then(function (result) {
+            var products = [];
+            angular.forEach(result, function (item) {
+                products.push(item.name);
+            });
+            console.log(" products: " + products);
+            return products;
+        });
+    };
 });
 
 module.controller('ProductDetailController', function($scope, $routeParams, $location, MarkLogicService) {
