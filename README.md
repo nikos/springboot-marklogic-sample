@@ -3,7 +3,7 @@
 ## Goal
 
 Build a simple (thin) web application with [Spring Boot](http://projects.spring.io/spring-boot/) to 
-demonstrate how to access domain-specific data (for the purpose of this demo: products) 
+demonstrate how to access domain-specific data (for the purpose of this sample: products) 
 from MarkLogic via its Java API. According to [Pivotals web site](https://spring.io/blog/2013/08/06/spring-boot-simplifying-spring-for-everyone)
 > Spring Boot aims to make it easy to create Spring-powered, production-grade applications and services with minimum fuss.
 
@@ -16,7 +16,7 @@ Since [February 2013](http://www.marklogic.com/press-releases/marklogic-simplifi
 everyone can get a [free MarkLogic Developer License](http://developer.marklogic.com/free-developer), 
 which gives access to a powerful (= "Enterprise") NoSQL database and application platform, allowing
 to store and index different kind of document types and search by various ways to quickly drill-down
-to data you are looking for. Note: This demo does only touch the tip of the iceberg regarding
+to data you are looking for. Note: This sample does only touch the tip of the iceberg regarding
 [MarkLogic's (search) features](http://www.marklogic.com/what-is-marklogic/enterprise-nosql/), 
 it is really meant only to give you an idea how easy it is building applications with it.
 
@@ -32,8 +32,8 @@ web application up and running.
 
 ### MarkLogic Server
 
-* [Download MarkLogic server](http://developer.marklogic.com/products/marklogic-server) (you need to create an account 
-  with the MarkLogic developer community)  
+* [Download MarkLogic server](http://developer.marklogic.com/products/marklogic-server) (version 7), Please note: you need to create an account 
+  with the MarkLogic developer community
 
 * [Install, start and setup](http://docs.marklogic.com/guide/installation/procedures#id_28962) your MarkLogic server instance,
    
@@ -45,7 +45,8 @@ web application up and running.
 ### Maven
 
 To compile and start the application you require a Java Development Kit (JDK 7) as well
-as [Maven](http://maven.apache.org/download.cgi) (version 3) 
+as [Maven](http://maven.apache.org/download.cgi) (version 3). 
+
 
 ### Bower
 
@@ -84,7 +85,6 @@ To start the app in debug mode (Port 5005 in this example), run:
     mvn spring-boot:run -Drun.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
 
 
-
 ### Enable auto-refresh:
 
 Using spring-loaded (see also https://github.com/spring-projects/spring-boot/issues/887)
@@ -94,8 +94,6 @@ your application stays up running.
 Set it up under VM options in your IDE (make auto-compile after save is working):
 
     -javaagent:/path/to/springloaded-1.2.0.RELEASE.jar -noverify
-
-
 
 
 ### Interact with the REST endpoints
@@ -129,7 +127,6 @@ time again.
 * [Spring Actuator: exposing metrics and allow to monitor the application easily](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready)
 
 * [Freemarker: template engine](http://freemarker.org/)
-
 
 
 ## Feedback
