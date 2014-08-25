@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.xml.namespace.QName;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -94,10 +93,15 @@ public class ProductRepositoryJSON implements ProductRepository {
 
     @Override
     public List<Product> findByName(String name) {
-        KeyValueQueryDefinition query = queryManager.newKeyValueDefinition();
-        query.put(queryManager.newElementLocator(new QName("name")), name);
-        SearchHandle resultsHandle = new SearchHandle();
+        //KeyValueQueryDefinition query = queryManager.newKeyValueDefinition();
+        //query.put(queryManager.newKeyLocator("name"), name);  // exact match
+
+        // Alternatively use:
+        StringQueryDefinition query = queryManager.newStringDefinition();
+        query.setCriteria(name); // "index OR Cassel NEAR Hare"
+
         queryManager.setPageLength(10);
+        SearchHandle resultsHandle = new SearchHandle();
         queryManager.search(query, resultsHandle);
         return getResultListFor(resultsHandle);
     }
