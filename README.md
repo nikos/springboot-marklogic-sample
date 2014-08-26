@@ -61,6 +61,8 @@ in the proper directory:
 
     bower install
 
+To adjust the target directory bower will save the downloaded dependencies please customize the file ```.bowerrc```.
+
 
 ## Try it out
 

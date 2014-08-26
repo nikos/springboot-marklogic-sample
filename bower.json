@@ -5,7 +5,7 @@
   "authors": [
     "Niko Schmuck <n.schmuck@nava.de>"
   ],
-  "description": "Fancy starter application",
+  "description": "MarkLogic sample application with Spring Boot and AngularJS",
   "license": "Apache License 2.0",
   "private": true,
   "ignore": [
