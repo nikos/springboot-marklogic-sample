@@ -23,7 +23,7 @@ public class ProductsTests {
         InputStream inputStream = Products.class.getResourceAsStream("/sampledata/products.xml");
         try {
             Products products = (Products) unmarshaller.unmarshal(inputStream);
-            assertEquals(4, products.getProducts().size());
+            assertEquals(40, products.getProducts().size());
         } finally  {
             inputStream.close();
         }
@@ -34,7 +34,7 @@ public class ProductsTests {
         ObjectMapper mapper = new ObjectMapper();
         InputStream inputStream = Products.class.getResourceAsStream("/sampledata/products.json");
         Product[] products = mapper.readValue(inputStream, Product[].class);
-        assertEquals(4, products.length);
+        assertEquals(40, products.length);
     }
 
 }

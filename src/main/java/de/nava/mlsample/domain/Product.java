@@ -15,6 +15,7 @@ public class Product {
     private String description;
     private Double price;
     private int year;
+    private String link;
 
     private List<String> categories = new ArrayList<>();
 
@@ -69,6 +70,14 @@ public class Product {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     @Override
