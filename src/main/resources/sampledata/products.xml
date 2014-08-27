@@ -1,42 +1,464 @@
+<?xml version="1.0"?>
 <products>
-    <product sku="1001">
-        <name>Everyday Italian</name>
-        <description>Author: Giada De Laurentiis</description>
+    <product sku="636920027966">
+        <name>XML and InDesign</name>
+        <description>By Dorothy J. Hoskins</description>
+        <year>2013</year>
+        <price>19.99</price>
         <categories>
+            <category>XML</category>
             <category>book</category>
-            <category>cooking</category>
         </categories>
+        <link>http://shop.oreilly.com/product/0636920027966.do</link>
+    </product>
+    <product sku="9780596101497">
+        <name>Java and XML, 3rd Edition</name>
+        <description>By Brett McLaughlin, Justin Edelson</description>
+        <year>2006</year>
+        <price>19.99</price>
+        <categories>
+            <category>XML</category>
+            <category>Java</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596101497.do</link>
+    </product>
+    <product sku="9780596100506">
+        <name>XML Pocket Reference, 3rd Edition</name>
+        <description>By Simon St. Laurent, Michael Fitzgerald</description>
         <year>2005</year>
-        <price>30.00</price>
-    </product>
-    <product sku="1002">
-        <name>Harry Potter</name>
-        <description>Author: J K. Rowling</description>
+        <price>9.95</price>
         <categories>
+            <category>XML</category>
             <category>book</category>
-            <category>children</category>
         </categories>
-        <year>2005</year>
-        <price>29.99</price>
+        <link>http://shop.oreilly.com/product/9780596100506.do</link>
     </product>
-    <product sku="1003">
-        <name>XQuery Kick Start</name>
-        <description>Authors: James McGovern, Per Bothner, Kurt Cagle, James Linn, Vaidyanathan Nagarajan</description>
+    <product sku="9780596007645">
+        <name>XML in a Nutshell, 3rd Edition</name>
+        <description>By Elliotte Rusty Harold, W. Scott Means</description>
+        <year>2004</year>
+        <price>44.99</price>
         <categories>
+            <category>XML</category>
             <category>book</category>
-            <category>web</category>
         </categories>
-        <year>2003</year>
-        <price>49.99</price>
+        <link>http://shop.oreilly.com/product/9780596007645.do</link>
     </product>
-    <product sku="1004">
-        <name>Learning XML</name>
-        <description>Author: Erik T. Ray</description>
+    <product sku="9780596002527">
+        <name>XML Schema</name>
+        <description>By Eric van der Vlist</description>
+        <year>2002</year>
+        <price>39.95</price>
         <categories>
+            <category>XML</category>
             <category>book</category>
-            <category>web</category>
         </categories>
+        <link>http://shop.oreilly.com/product/9780596002527.do</link>
+    </product>
+    <product sku="9780596005382">
+        <name>Office 2003 XML</name>
+        <description>By Evan Lenz, Mary McRae, Simon St. Laurent</description>
+        <year>2004</year>
+        <price>44.99</price>
+        <categories>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596005382.do</link>
+    </product>
+    <product sku="9780596007119">
+        <name>XML Hacks</name>
+        <description>By Michael Fitzgerald</description>
+        <year>2004</year>
+        <price>24.95</price>
+        <categories>
+            <category>Programming</category>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596007119.do</link>
+    </product>
+    <product sku="9780596002169">
+        <name>XML Publishing with AxKit</name>
+        <description>By Kip Hampton</description>
+        <year>2004</year>
+        <price>29.95</price>
+        <categories>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596002169.do</link>
+    </product>
+    <product sku="9780596004200">
+        <name>Learning XML, 2nd Edition</name>
+        <description>By Erik T. Ray</description>
         <year>2003</year>
         <price>39.95</price>
+        <categories>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596004200.do</link>
+    </product>
+    <product sku="9780596002053">
+        <name>Perl and XML</name>
+        <description>By Erik T. Ray, Jason McIntosh</description>
+        <year>2002</year>
+        <price>39.99</price>
+        <categories>
+            <category>Perl</category>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596002053.do</link>
+    </product>
+    <product sku="9780596003975">
+        <name>.NET &amp; XML</name>
+        <description>By Niel M. Bornstein</description>
+        <year>2003</year>
+        <price>39.95</price>
+        <categories>
+            <category>XML</category>
+            <category>.NET</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596003975.do</link>
+    </product>
+    <product sku="9780596001193">
+        <name>Programming Web Services with XML-RPC</name>
+        <description>By Simon St. Laurent, Joe Johnston, Edd Dumbill, Dave Winer</description>
+        <year>2001</year>
+        <price>34.99</price>
+        <categories>
+            <category>XML</category>
+            <category>Programming</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596001193.do</link>
+    </product>
+    <product sku="9780596001285">
+        <name>Python &amp; XML</name>
+        <description>By Christopher A. Jones, Fred L. Drake Jr</description>
+        <year>2001</year>
+        <categories>
+            <category>XML</category>
+            <category>Python</category>
+            <category>book</category>
+        </categories>
+        <price>39.99</price>
+        <link>http://shop.oreilly.com/product/9780596001285.do</link>
+    </product>
+    <product sku="9780596002787">
+        <name>Java &amp; XML Data Binding</name>
+        <description>By Brett McLaughlin</description>
+        <year>2002</year>
+        <price>39.99</price>
+        <categories>
+            <category>XML</category>
+            <category>Java</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596002787.do</link>
+    </product>
+    <product sku="636920026525">
+        <name>eXist</name>
+        <description>By Erik Siegel, Adam Retter</description>
+        <year>2014</year>
+        <price>44.99</price>
+        <categories>
+            <category>XML</category>
+            <category>NoSQL</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/0636920026525.do</link>
+    </product>
+    <product sku="636920032335">
+        <name>SVG Essentials, 2nd Edition</name>
+        <description>By J. David Eisenberg, Amelia Bellamy-Royds</description>
+        <year>2014</year>
+        <price>39.99</price>
+        <categories>
+            <category>XML</category>
+            <category>SVG</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/0636920032335.do</link>
+    </product>
+    <product sku="9780596805012">
+        <name>DocBook 5: The Definitive Guide</name>
+        <description>By Norman Walsh, Richard L. Hamilton</description>
+        <year>2010</year>
+        <price>49.99</price>
+        <categories>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596805012.do</link>
+    </product>
+    <product sku="9780596009748">
+        <name>XSLT Cookbook, 2nd Edition</name>
+        <description>By Sal Mangano</description>
+        <year>2005</year>
+        <price>43.99</price>
+        <categories>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596009748.do</link>
+    </product>
+    <product sku="9780596102432">
+        <name>Programming Firefox</name>
+        <description>By Kenneth C. Feldt</description>
+        <year>2007</year>
+        <price>59.99</price>
+        <categories>
+            <category>XML</category>
+            <category>Programming</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596102432.do</link>
+    </product>
+    <product sku="9780596002237">
+        <name>SVG Essentials</name>
+        <description>By J. David Eisenberg</description>
+        <year>2002</year>
+        <price>34.95</price>
+        <categories>
+            <category>XML</category>
+            <category>SVG</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596002237.do</link>
+    </product>
+    <product sku="9780596100087">
+        <name>XSLT 1.0 Pocket Reference</name>
+        <description>By Evan Lenz</description>
+        <year>2005</year>
+        <price>9.95</price>
+        <categories>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596100087.do</link>
+    </product>
+    <product sku="9780596009502">
+        <name>FrontPage 2003: The Missing Manual</name>
+        <description>By Jessica Mantaro</description>
+        <year>2005</year>
+        <price>29.95</price>
+        <categories>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596009502.do</link>
+    </product>
+    <product sku="9780596101695">
+        <name>Ajax Hacks</name>
+        <description>By Bruce W. Perry</description>
+        <year>2006</year>
+        <price>29.99</price>
+        <categories>
+            <category>XML</category>
+            <category>Programming</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596101695.do</link>
+    </product>
+    <product sku="9780596526733">
+        <name>XAML in a Nutshell</name>
+        <description>By Lori A. MacVittie</description>
+        <year>2006</year>
+        <price>29.99</price>
+        <categories>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596526733.do</link>
+    </product>
+    <product sku="9780596527211">
+        <name>XSLT, 2nd Edition</name>
+        <description>By Doug Tidwell</description>
+        <year>2008</year>
+        <price>49.99</price>
+        <categories>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596527211.do</link>
+    </product>
+    <product sku="9780596002916">
+        <name>XPath and XPointer</name>
+        <description>By John Simpson</description>
+        <year>2002</year>
+        <price>34.99</price>
+        <categories>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596002916.do</link>
+    </product>
+    <product sku="9780596003555">
+        <name>XSL-FO</name>
+        <description>By Dave Pawson</description>
+        <year>2002</year>
+        <price>34.99</price>
+        <categories>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596003555.do</link>
+    </product>
+    <product sku="9780596007065">
+        <name>Jakarta Commons Cookbook</name>
+        <description>By Timothy M. O&apos;Brien</description>
+        <year>2004</year>
+        <price>44.95</price>
+        <categories>
+            <category>XML</category>
+            <category>Java</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596007065.do</link>
+    </product>
+    <product sku="9780596007676">
+        <name>Excel 2003 Programming: A Developer&apos;s Notebook</name>
+        <description>By Jeff Webb</description>
+        <year>2004</year>
+        <price>29.95</price>
+        <categories>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596007676.do</link>
+    </product>
+    <product sku="9780596002244">
+        <name>Web Services Essentials</name>
+        <description>By Ethan Cerami</description>
+        <year>2002</year>
+        <price>29.99</price>
+        <categories>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596002244.do</link>
+    </product>
+    <product sku="9780596006341">
+        <name>XQuery</name>
+        <description>By Priscilla Walmsley</description>
+        <year>2007</year>
+        <price>49.99</price>
+        <categories>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596006341.do</link>
+    </product>
+    <product sku="9780596000950">
+        <name>Programming Web Services with SOAP</name>
+        <description>By James Snell, Doug Tidwell, Pavel Kulchenko</description>
+        <year>2001</year>
+        <price>34.95</price>
+        <categories>
+            <category>XML</category>
+            <category>Programming</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596000950.do</link>
+    </product>
+    <product sku="9780596002374">
+        <name>SAX2</name>
+        <description>By David Brownell</description>
+        <year>2002</year>
+        <price>29.95</price>
+        <categories>
+            <category>XML</category>
+            <category>Programming</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596002374.do</link>
+    </product>
+    <product sku="9780596101879">
+        <name>Ajax on Java</name>
+        <description>By Steven Douglas Olson</description>
+        <year>2007</year>
+        <price>29.99</price>
+        <categories>
+            <category>XML</category>
+            <category>Java</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596101879.do</link>
+    </product>
+    <product sku="9780596002060">
+        <name>Programming Web Services with Perl</name>
+        <description>By Randy J. Ray, Pavel Kulchenko</description>
+        <year>2002</year>
+        <price>49.99</price>
+        <categories>
+            <category>XML</category>
+            <category>Perl</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596002060.do</link>
+    </product>
+    <product sku="9780596002398">
+        <name>Dreamweaver in a Nutshell</name>
+        <description>By Bruce A. Epstein, Heather Williamson</description>
+        <year>2001</year>
+        <price>29.95</price>
+        <categories>
+            <category>XML</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596002398.do</link>
+    </product>
+    <product sku="9780596002411">
+        <name>Perl in a Nutshell, 2nd Edition</name>
+        <description>By Nathan Patwardhan, Ellen Siever, Stephen Spainhour</description>
+        <year>2002</year>
+        <price>39.95</price>
+        <categories>
+            <category>XML</category>
+            <category>Perl</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596002411.do</link>
+    </product>
+    <product sku="9780596002503">
+        <name>Programming .NET Web Services</name>
+        <description>By Alex Ferrara, Matthew MacDonald</description>
+        <year>2002</year>
+        <price>39.95</price>
+        <categories>
+            <category>XML</category>
+            <category>.NET</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596002503.do</link>
+    </product>
+    <product sku="9780596003999">
+        <name>Java Web Services in a Nutshell</name>
+        <description>By Kim Topley</description>
+        <year>2003</year>
+        <price>39.95</price>
+        <categories>
+            <category>XML</category>
+            <category>Java</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596003999.do</link>
+    </product>
+    <product sku="9780596002022">
+        <name>Programming Jabber</name>
+        <description>By DJ Adams</description>
+        <year>2002</year>
+        <price>49.99</price>
+        <categories>
+            <category>XML</category>
+            <category>Programming</category>
+            <category>book</category>
+        </categories>
+        <link>http://shop.oreilly.com/product/9780596002022.do</link>
     </product>
 </products>
