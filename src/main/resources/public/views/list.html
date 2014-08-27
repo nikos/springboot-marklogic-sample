@@ -7,13 +7,13 @@
     <tr ng-repeat="product in products">
         <td>{{product.sku}}</td>
         <td><a href="#/products/{{product.sku}}">{{product.name}}</a></td>
-        <td>{{product.description}}</td>
+        <td width="30%">{{product.description}}</td>
         <td>{{product.price | number : 2}}</td>
         <td>{{product.categories}}</td>
         <td>{{product.year}}</td>
         <td>
             <button type="button" class="btn btn-default btn-sm">
-                <span class="glyphicon glyphicon-delete"></span> Delete
+                <span class="glyphicon glyphicon-remove" title="Delete Product"></span>
             </button>
         </td>
     </tr>

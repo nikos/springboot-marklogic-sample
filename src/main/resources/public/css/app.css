@@ -1,0 +1,8 @@
+body {
+    padding-top: 20px;
+}
+
+.navbar-default {
+    background: rgba(138, 209, 255, 0.20) linear-gradient(#434648, #2a2c2e);
+    border-color: #e7e7e7;
+}
