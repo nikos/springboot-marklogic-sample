@@ -12,9 +12,23 @@
         <td>{{product.categories}}</td>
         <td>{{product.year}}</td>
         <td>
-            <button type="button" class="btn btn-default btn-sm">
+            <button type="button" class="btn btn-default btn-sm" ng-click="confirmDeletion(product)">
                 <span class="glyphicon glyphicon-remove" title="Delete Product"></span>
             </button>
         </td>
     </tr>
 </table>
+
+<script type="text/ng-template" id="confirmDeletionModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Warning</h3>
+    </div>
+    <div class="modal-body">
+        Do you really want to delete:
+        <b>"{{product.name}}"</b> ?
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</script>

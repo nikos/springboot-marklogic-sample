@@ -42,18 +42,52 @@ module.factory('MarkLogicService', function ($resource) {
 
 /* ======================================================================= */
 
-module.controller('ProductListController', function($scope, MarkLogicService) {
+module.controller('ProductListController', function($scope, $modal, $log, MarkLogicService) {
     $scope.products = MarkLogicService.getProducts();
+
+    $scope.confirmDeletion = function (product) {
+        var modalInstance = $modal.open({
+            templateUrl: 'confirmDeletionModal.html',
+            controller: ModalInstanceCtrl,
+            size: 'sm',
+            resolve: {
+                product: function () {
+                    return product;
+                }
+            }
+        });
+        // As soon the user made a decision
+        modalInstance.result.then(function(product) {
+            $log.info('Will now delete product: ' + product.sku);
+            MarkLogicService.removeProduct({sku: product.sku});
+            // (in case paging is not an issue, delete directly)
+            //  var index = $scope.products.indexOf(product);
+            //  $scope.products.splice(index, 1);
+            $scope.products = MarkLogicService.getProducts();
+        }, function () {
+            $log.info('Modal dismissed.');
+        });
+    }
 });
 
-module.controller('ProductSearchController', function($scope, $http, MarkLogicService) {
+var ModalInstanceCtrl = function($scope, $modalInstance, product) {
+    $scope.product = product;
+    $scope.ok = function () {
+        $modalInstance.close(product);
+    };
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+};
+
+module.controller('ProductSearchController', function($scope, $http, $log, MarkLogicService) {
     $scope.findMatchingProducts = function (val) {
         return MarkLogicService.getProducts({name: val}).$promise.then(function (result) {
             var products = [];
             angular.forEach(result, function (item) {
                 products.push(item.name);
             });
-            console.log(" products: " + products);
+            $log.info(' products: ' + products);
             return products;
         });
     };
@@ -75,12 +109,3 @@ module.controller('ProductCreateController', function($scope, $location, MarkLog
         });
     };
 });
-
-/* ======================================================================= */
-
-function Hello($scope, $http) {
-    $http.get('http://rest-service.guides.spring.io/greeting').
-        success(function(data) {
-            $scope.greeting = data;
-        });
-}
