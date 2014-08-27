@@ -9,6 +9,9 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -25,11 +28,32 @@ public class BootstrapDataPopulator implements InitializingBean {
     @Autowired
     protected ProductRepositoryJSON productRepositoryJSON;
 
+    @Autowired
+    protected ProductRepositoryXML productRepositoryXML;
+
     @Override
     public void afterPropertiesSet() throws Exception {
         logger.info("~~~ Load bootstrap data");
         if (productRepositoryJSON.count() == 0) {
             importJSONProducts();
+        }
+        if (productRepositoryXML.count() == 0) {
+            importXMLProducts();
+        }
+    }
+
+    private void importXMLProducts() throws JAXBException, IOException {
+        JAXBContext context = JAXBContext.newInstance(Products.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        InputStream inputStream = Products.class.getResourceAsStream("/sampledata/products.xml");
+        try {
+            Products products = (Products) unmarshaller.unmarshal(inputStream);
+            for (Product product : products.getProducts()) {
+                productRepositoryXML.add(product);
+            }
+            logger.info("Imported {} products to JSON store", products.getProducts().size());
+        } finally  {
+            inputStream.close();
         }
     }
 

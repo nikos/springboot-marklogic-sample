@@ -1,8 +1,7 @@
 package de.nava.mlsample.service;
 
 import de.nava.mlsample.domain.Product;
-
-import java.util.List;
+import de.nava.mlsample.domain.ProductSearchResult;
 
 /**
  * Showcase for a simple repository allowing to access and modify
@@ -18,9 +17,9 @@ public interface ProductRepository {
 
     Product findBySku(Long sku);
 
-    List<Product> findAll();
+    ProductSearchResult findAll();
 
-    List<Product> findByName(String name);
+    ProductSearchResult findByName(String name);
 
     Long count();
 

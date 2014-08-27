@@ -3,21 +3,35 @@
         class="icon-plus-sign icon-white"></i> Create New Product</a>
 </h2>
 
-<table class="table table-striped">
-    <tr ng-repeat="product in products">
-        <td>{{product.sku}}</td>
-        <td><a href="#/products/{{product.sku}}">{{product.name}}</a></td>
-        <td width="30%">{{product.description}}</td>
-        <td>{{product.price | number : 2}}</td>
-        <td>{{product.categories}}</td>
-        <td>{{product.year}}</td>
-        <td>
-            <button type="button" class="btn btn-default btn-sm" ng-click="confirmDeletion(product)">
-                <span class="glyphicon glyphicon-remove" title="Delete Product"></span>
-            </button>
-        </td>
-    </tr>
-</table>
+<div class="row">
+    <div class="col-md-1">
+        <h4>Year</h4>
+        <ul class="nav nav-pills nav-stacked" ng-repeat="facet in searchresult.yearFacets">
+            <li><small>{{facet.name}} <span class="badge pull-right">{{facet.count}}</span></small></li>
+        </ul>
+        <h4>Price</h4>
+        <ul class="nav nav-pills nav-stacked" ng-repeat="facet in searchresult.priceFacets">
+            <li><small>{{facet.label}} <span class="badge pull-right">{{facet.count}}</span></small></li>
+        </ul>
+    </div>
+    <div class="col-md-11">
+        <table class="table table-striped">
+            <tr ng-repeat="product in searchresult.products">
+                <td>{{product.sku}}</td>
+                <td><a href="#/products/{{product.sku}}">{{product.name}}</a></td>
+                <td width="30%">{{product.description}}</td>
+                <td>{{product.price | number : 2}}</td>
+                <td>{{product.categories}}</td>
+                <td>{{product.year}}</td>
+                <td>
+                    <button type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-remove" title="Delete Product"></span>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
 
 <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" class="pagination-sm"
             previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
