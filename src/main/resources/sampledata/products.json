@@ -2,502 +2,502 @@
     {
         "name": "XML and InDesign",
         "description": "By Dorothy J. Hoskins",
-        "year": "2013",
-        "price": "19.99",
+        "year": 2013,
+        "price": 19.99,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/0636920027966.do",
-        "sku": "636920027966"
+        "sku": 636920027966
     },
     {
         "name": "Java and XML, 3rd Edition",
         "description": "By Brett McLaughlin, Justin Edelson",
-        "year": "2006",
-        "price": "19.99",
+        "year": 2006,
+        "price": 19.99,
         "categories": [
             "XML",
             "Java",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596101497.do",
-        "sku": "9780596101497"
+        "sku": 9780596101497
     },
     {
         "name": "XML Pocket Reference, 3rd Edition",
         "description": "By Simon St. Laurent, Michael Fitzgerald",
-        "year": "2005",
-        "price": "9.95",
+        "year": 2005,
+        "price": 9.95,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596100506.do",
-        "sku": "9780596100506"
+        "sku": 9780596100506
     },
     {
         "name": "XML in a Nutshell, 3rd Edition",
         "description": "By Elliotte Rusty Harold, W. Scott Means",
-        "year": "2004",
-        "price": "44.99",
+        "year": 2004,
+        "price": 44.99,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596007645.do",
-        "sku": "9780596007645"
+        "sku": 9780596007645
     },
     {
         "name": "XML Schema",
         "description": "By Eric van der Vlist",
-        "year": "2002",
-        "price": "39.95",
+        "year": 2002,
+        "price": 39.95,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596002527.do",
-        "sku": "9780596002527"
+        "sku": 9780596002527
     },
     {
         "name": "Office 2003 XML",
         "description": "By Evan Lenz, Mary McRae, Simon St. Laurent",
-        "year": "2004",
-        "price": "44.99",
+        "year": 2004,
+        "price": 44.99,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596005382.do",
-        "sku": "9780596005382"
+        "sku": 9780596005382
     },
     {
         "name": "XML Hacks",
         "description": "By Michael Fitzgerald",
-        "year": "2004",
-        "price": "24.95",
+        "year": 2004,
+        "price": 24.95,
         "categories": [
             "Programming",
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596007119.do",
-        "sku": "9780596007119"
+        "sku": 9780596007119
     },
     {
         "name": "XML Publishing with AxKit",
         "description": "By Kip Hampton",
-        "year": "2004",
-        "price": "29.95",
+        "year": 2004,
+        "price": 29.95,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596002169.do",
-        "sku": "9780596002169"
+        "sku": 9780596002169
     },
     {
         "name": "Learning XML, 2nd Edition",
         "description": "By Erik T. Ray",
-        "year": "2003",
-        "price": "39.95",
+        "year": 2003,
+        "price": 39.95,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596004200.do",
-        "sku": "9780596004200"
+        "sku": 9780596004200
     },
     {
         "name": "Perl and XML",
         "description": "By Erik T. Ray, Jason McIntosh",
-        "year": "2002",
-        "price": "39.99",
+        "year": 2002,
+        "price": 39.99,
         "categories": [
             "Perl",
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596002053.do",
-        "sku": "9780596002053"
+        "sku": 9780596002053
     },
     {
         "name": ".NET & XML",
         "description": "By Niel M. Bornstein",
-        "year": "2003",
-        "price": "39.95",
+        "year": 2003,
+        "price": 39.95,
         "categories": [
             "XML",
             ".NET",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596003975.do",
-        "sku": "9780596003975"
+        "sku": 9780596003975
     },
     {
         "name": "Programming Web Services with XML-RPC",
         "description": "By Simon St. Laurent, Joe Johnston, Edd Dumbill, Dave Winer",
-        "year": "2001",
-        "price": "34.99",
+        "year": 2001,
+        "price": 34.99,
         "categories": [
             "XML",
             "Programming",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596001193.do",
-        "sku": "9780596001193"
+        "sku": 9780596001193
     },
     {
         "name": "Python & XML",
         "description": "By Christopher A. Jones, Fred L. Drake Jr",
-        "year": "2001",
+        "year": 2001,
         "categories": [
             "XML",
             "Python",
             "book"
         ],
-        "price": "39.99",
+        "price": 39.99,
         "link": "http://shop.oreilly.com/product/9780596001285.do",
-        "sku": "9780596001285"
+        "sku": 9780596001285
     },
     {
         "name": "Java & XML Data Binding",
         "description": "By Brett McLaughlin",
-        "year": "2002",
-        "price": "39.99",
+        "year": 2002,
+        "price": 39.99,
         "categories": [
             "XML",
             "Java",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596002787.do",
-        "sku": "9780596002787"
+        "sku": 9780596002787
     },
     {
         "name": "eXist",
         "description": "By Erik Siegel, Adam Retter",
-        "year": "2014",
-        "price": "44.99",
+        "year": 2014,
+        "price": 44.99,
         "categories": [
             "XML",
             "NoSQL",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/0636920026525.do",
-        "sku": "636920026525"
+        "sku": 636920026525
     },
     {
         "name": "SVG Essentials, 2nd Edition",
         "description": "By J. David Eisenberg, Amelia Bellamy-Royds",
-        "year": "2014",
-        "price": "39.99",
+        "year": 2014,
+        "price": 39.99,
         "categories": [
             "XML",
             "SVG",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/0636920032335.do",
-        "sku": "636920032335"
+        "sku": 636920032335
     },
     {
         "name": "DocBook 5: The Definitive Guide",
         "description": "By Norman Walsh, Richard L. Hamilton",
-        "year": "2010",
-        "price": "49.99",
+        "year": 2010,
+        "price": 49.99,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596805012.do",
-        "sku": "9780596805012"
+        "sku": 9780596805012
     },
     {
         "name": "XSLT Cookbook, 2nd Edition",
         "description": "By Sal Mangano",
-        "year": "2005",
-        "price": "43.99",
+        "year": 2005,
+        "price": 43.99,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596009748.do",
-        "sku": "9780596009748"
+        "sku": 9780596009748
     },
     {
         "name": "Programming Firefox",
         "description": "By Kenneth C. Feldt",
-        "year": "2007",
-        "price": "59.99",
+        "year": 2007,
+        "price": 59.99,
         "categories": [
             "XML",
             "Programming",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596102432.do",
-        "sku": "9780596102432"
+        "sku": 9780596102432
     },
     {
         "name": "SVG Essentials",
         "description": "By J. David Eisenberg",
-        "year": "2002",
-        "price": "34.95",
+        "year": 2002,
+        "price": 34.95,
         "categories": [
             "XML",
             "SVG",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596002237.do",
-        "sku": "9780596002237"
+        "sku": 9780596002237
     },
     {
         "name": "XSLT 1.0 Pocket Reference",
         "description": "By Evan Lenz",
-        "year": "2005",
-        "price": "9.95",
+        "year": 2005,
+        "price": 9.95,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596100087.do",
-        "sku": "9780596100087"
+        "sku": 9780596100087
     },
     {
         "name": "FrontPage 2003: The Missing Manual",
         "description": "By Jessica Mantaro",
-        "year": "2005",
-        "price": "29.95",
+        "year": 2005,
+        "price": 29.95,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596009502.do",
-        "sku": "9780596009502"
+        "sku": 9780596009502
     },
     {
         "name": "Ajax Hacks",
         "description": "By Bruce W. Perry",
-        "year": "2006",
-        "price": "29.99",
+        "year": 2006,
+        "price": 29.99,
         "categories": [
             "XML",
             "Programming",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596101695.do",
-        "sku": "9780596101695"
+        "sku": 9780596101695
     },
     {
         "name": "XAML in a Nutshell",
         "description": "By Lori A. MacVittie",
-        "year": "2006",
-        "price": "29.99",
+        "year": 2006,
+        "price": 29.99,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596526733.do",
-        "sku": "9780596526733"
+        "sku": 9780596526733
     },
     {
         "name": "XSLT, 2nd Edition",
         "description": "By Doug Tidwell",
-        "year": "2008",
-        "price": "49.99",
+        "year": 2008,
+        "price": 49.99,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596527211.do",
-        "sku": "9780596527211"
+        "sku": 9780596527211
     },
     {
         "name": "XPath and XPointer",
         "description": "By John Simpson",
-        "year": "2002",
-        "price": "34.99",
+        "year": 2002,
+        "price": 34.99,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596002916.do",
-        "sku": "9780596002916"
+        "sku": 9780596002916
     },
     {
         "name": "XSL-FO",
         "description": "By Dave Pawson",
-        "year": "2002",
-        "price": "34.99",
+        "year": 2002,
+        "price": 34.99,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596003555.do",
-        "sku": "9780596003555"
+        "sku": 9780596003555
     },
     {
         "name": "Jakarta Commons Cookbook",
         "description": "By Timothy M. O'Brien",
-        "year": "2004",
-        "price": "44.95",
+        "year": 2004,
+        "price": 44.95,
         "categories": [
             "XML",
             "Java",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596007065.do",
-        "sku": "9780596007065"
+        "sku": 9780596007065
     },
     {
         "name": "Excel 2003 Programming: A Developer's Notebook",
         "description": "By Jeff Webb",
-        "year": "2004",
-        "price": "29.95",
+        "year": 2004,
+        "price": 29.95,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596007676.do",
-        "sku": "9780596007676"
+        "sku": 9780596007676
     },
     {
         "name": "Web Services Essentials",
         "description": "By Ethan Cerami",
-        "year": "2002",
-        "price": "29.99",
+        "year": 2002,
+        "price": 29.99,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596002244.do",
-        "sku": "9780596002244"
+        "sku": 9780596002244
     },
     {
         "name": "XQuery",
         "description": "By Priscilla Walmsley",
-        "year": "2007",
-        "price": "49.99",
+        "year": 2007,
+        "price": 49.99,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596006341.do",
-        "sku": "9780596006341"
+        "sku": 9780596006341
     },
     {
         "name": "Programming Web Services with SOAP",
         "description": "By James Snell, Doug Tidwell, Pavel Kulchenko",
-        "year": "2001",
-        "price": "34.95",
+        "year": 2001,
+        "price": 34.95,
         "categories": [
             "XML",
             "Programming",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596000950.do",
-        "sku": "9780596000950"
+        "sku": 9780596000950
     },
     {
         "name": "SAX2",
         "description": "By David Brownell",
-        "year": "2002",
-        "price": "29.95",
+        "year": 2002,
+        "price": 29.95,
         "categories": [
             "XML",
             "Programming",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596002374.do",
-        "sku": "9780596002374"
+        "sku": 9780596002374
     },
     {
         "name": "Ajax on Java",
         "description": "By Steven Douglas Olson",
-        "year": "2007",
-        "price": "29.99",
+        "year": 2007,
+        "price": 29.99,
         "categories": [
             "XML",
             "Java",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596101879.do",
-        "sku": "9780596101879"
+        "sku": 9780596101879
     },
     {
         "name": "Programming Web Services with Perl",
         "description": "By Randy J. Ray, Pavel Kulchenko",
-        "year": "2002",
-        "price": "49.99",
+        "year": 2002,
+        "price": 49.99,
         "categories": [
             "XML",
             "Perl",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596002060.do",
-        "sku": "9780596002060"
+        "sku": 9780596002060
     },
     {
         "name": "Dreamweaver in a Nutshell",
         "description": "By Bruce A. Epstein, Heather Williamson",
-        "year": "2001",
-        "price": "29.95",
+        "year": 2001,
+        "price": 29.95,
         "categories": [
             "XML",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596002398.do",
-        "sku": "9780596002398"
+        "sku": 9780596002398
     },
     {
         "name": "Perl in a Nutshell, 2nd Edition",
         "description": "By Nathan Patwardhan, Ellen Siever, Stephen Spainhour",
-        "year": "2002",
-        "price": "39.95",
+        "year": 2002,
+        "price": 39.95,
         "categories": [
             "XML",
             "Perl",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596002411.do",
-        "sku": "9780596002411"
+        "sku": 9780596002411
     },
     {
         "name": "Programming .NET Web Services",
         "description": "By Alex Ferrara, Matthew MacDonald",
-        "year": "2002",
-        "price": "39.95",
+        "year": 2002,
+        "price": 39.95,
         "categories": [
             "XML",
             ".NET",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596002503.do",
-        "sku": "9780596002503"
+        "sku": 9780596002503
     },
     {
         "name": "Java Web Services in a Nutshell",
         "description": "By Kim Topley",
-        "year": "2003",
-        "price": "39.95",
+        "year": 2003,
+        "price": 39.95,
         "categories": [
             "XML",
             "Java",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596003999.do",
-        "sku": "9780596003999"
+        "sku": 9780596003999
     },
     {
         "name": "Programming Jabber",
         "description": "By DJ Adams",
-        "year": "2002",
-        "price": "49.99",
+        "year": 2002,
+        "price": 49.99,
         "categories": [
             "XML",
             "Programming",
             "book"
         ],
         "link": "http://shop.oreilly.com/product/9780596002022.do",
-        "sku": "9780596002022"
+        "sku": 9780596002022
     }
 ]
