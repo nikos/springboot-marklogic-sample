@@ -36,7 +36,8 @@ public class SampleWebControllerIT {
         ResponseEntity<String> entity = new TestRestTemplate().getForEntity("http://localhost:" + port, String.class);
         // TODO: add hamcrest contains string
         assertEquals(HttpStatus.OK, entity.getStatusCode());
-        assertTrue("Wrong body:\n" + entity.getBody(), entity.getBody().contains("Message: Just a test"));
+        assertTrue("Wrong body:\n" + entity.getBody(), entity.getBody()
+                .contains("Sample web application: MarkLogic with SpringBoot"));
     }
 
     @Test
