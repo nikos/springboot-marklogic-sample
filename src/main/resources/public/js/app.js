@@ -44,6 +44,8 @@ module.factory('MarkLogicService', function ($resource) {
 
 module.controller('ProductListController', function($scope, $modal, $log, MarkLogicService) {
     $scope.products = MarkLogicService.getProducts();
+    $scope.totalItems = 40;
+    $scope.currentPage = 1;
 
     $scope.confirmDeletion = function (product) {
         var modalInstance = $modal.open({
