@@ -79,7 +79,7 @@ and start the application directly from the command-line by executing:
 
     mvn spring-boot:run
 
-If you want to open the sources with your favorite IDE, you might want to 
+If you want to open the sources with your favorite IDE, you might want to generate project files for Eclipse resp. IntelliJ IDEA with:
 
     mvn eclipse:eclipse
     mvn idea:idea
