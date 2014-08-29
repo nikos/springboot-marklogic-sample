@@ -8,6 +8,8 @@ from MarkLogic via its Java API. According to [Pivotals web site](https://spring
 > Spring Boot aims to make it easy to create Spring-powered, production-grade applications and services with minimum fuss.
 
 To interact easily with the exposed REST endpoints there is a small AngularJS web client sitting on top.
+For better understanding how MarkLogic's Java Client API handles JSON and XML documents
+both formats are supported in the sample application.
 
 
 ## Motivation
@@ -87,17 +89,6 @@ To start the app in debug mode (Port 5005 in this example), run:
     mvn spring-boot:run -Drun.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
 
 
-### Enable auto-refresh:
-
-Using spring-loaded (see also https://github.com/spring-projects/spring-boot/issues/887)
-it is possible to some degree to exchange the recompile class file while 
-your application stays up running.
-
-Set it up under VM options in your IDE (make auto-compile after save is working):
-
-    -javaagent:/path/to/springloaded-1.2.0.RELEASE.jar -noverify
-
-
 ### Interact with the REST endpoints
 
 The following examples use [httpie](http://httpie.org) as user-friendly cURL replacement.
@@ -122,16 +113,40 @@ time again.
     http DELETE localhost:8080/products/4711.json
 
 
+## Implementation details
+
+### Spring Beans
+
+The following diagram shows which Spring beans are used by the sample application:
+
+![Spring Beans](https://raw.githubusercontent.com/nikos/springboot-marklogic-sample/master/doc/springbeans.png)
+
+
+### Enable auto-refresh:
+
+By using spring-loaded (see also https://github.com/spring-projects/spring-boot/issues/887)
+it is possible (to some degree) to exchange recompiled classes while 
+your application stays up running.
+
+Set it up under VM options in your IDE (make auto-compile after save is working):
+
+    -javaagent:/path/to/springloaded-1.2.0.RELEASE.jar -noverify
+
+
 ## Further reading
 
 * [Introduction to the MarkLogic Java API](https://docs.marklogic.com/guide/java/intro)
-
+* [Spring Boot Reference](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
 * [Spring Actuator: exposing metrics and allow to monitor the application easily](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready)
 
-* [Freemarker: template engine](http://freemarker.org/)
+<!--
+   [Freemarker: template engine](http://freemarker.org/)
+-->
 
 
 ## Feedback
 
-In case of any questions or suggestions please get into contact 
-with the author via [email](mailto:niko[at]nava[dot]de).
+In case of any questions or suggestions please get into 
+[contact with the author](mailto:niko[at]nava[dot]de)
+of course reporting issues or even contribute pull requests
+via github are highly welcome.
