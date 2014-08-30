@@ -42,10 +42,10 @@ module.factory('MarkLogicService', function ($resource) {
 
 /* ======================================================================= */
 
-module.controller('ProductListController', function($scope, $modal, $log, MarkLogicService) {
+module.controller('ProductListController', function($scope, $modal, $log, MarkLogicService, toastr) {
     $scope.products = MarkLogicService.getProducts();
-    $scope.totalItems = 40;
-    $scope.currentPage = 1;
+    $scope.totalItems = 40;  // FIXME
+    $scope.currentPage = 1;  // FIXME
 
     $scope.confirmDeletion = function (product) {
         var modalInstance = $modal.open({
@@ -62,6 +62,7 @@ module.controller('ProductListController', function($scope, $modal, $log, MarkLo
         modalInstance.result.then(function(product) {
             $log.info('Will now delete product: ' + product.sku);
             MarkLogicService.removeProduct({sku: product.sku});
+            toastr.success("Deleted product '" + product.name + "'");
             // (in case paging is not an issue, delete directly)
             //  var index = $scope.products.indexOf(product);
             //  $scope.products.splice(index, 1);
