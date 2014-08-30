@@ -1,0 +1,24 @@
+{
+    "search": {
+        "options": {
+            "constraint": [
+                {
+                    "range": {
+                        "json-key": "year",
+                        "type": "xs:gYear",
+                        "facet-option": "descending"
+                    },
+                    "name": "year"
+                },
+                {
+                    "range": {
+                        "json-key": "price",
+                        "type": "xs:double",
+                        "facet-option": "descending"
+                    },
+                    "name": "price"
+                }
+            ]
+        }
+    }
+}

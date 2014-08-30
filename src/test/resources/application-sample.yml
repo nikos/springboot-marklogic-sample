@@ -1,0 +1,6 @@
+# Adjust to your environment and copy to application.yml
+marklogic:
+  host: localhost
+  port: 8005
+  username: admin
+  password: admin
