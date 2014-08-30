@@ -2,6 +2,7 @@ package de.nava.mlsample.web;
 
 import com.marklogic.client.ResourceNotFoundException;
 import de.nava.mlsample.domain.Product;
+import de.nava.mlsample.domain.ProductSearchResult;
 import de.nava.mlsample.service.ProductRepositoryJSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,8 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.util.List;
 
 @RestController
 public class SampleRESTwithJSONController {
@@ -63,7 +62,7 @@ public class SampleRESTwithJSONController {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public List<Product> searchProducts(@RequestParam(required = false, value = "name") String name) {
+    public ProductSearchResult searchProducts(@RequestParam(required = false, value = "name") String name) {
         if (StringUtils.isEmpty(name)) {
             logger.info("Lookup all {} products...", productRepositoryJSON.count());
             return productRepositoryJSON.findAll();

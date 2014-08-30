@@ -6,6 +6,7 @@ import com.marklogic.client.io.JAXBHandle;
 import com.marklogic.client.io.SearchHandle;
 import com.marklogic.client.query.*;
 import de.nava.mlsample.domain.Product;
+import de.nava.mlsample.domain.ProductSearchResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,24 +71,24 @@ public class ProductRepositoryXML implements ProductRepository {
     }
 
     @Override
-    public List<Product> findAll() {
+    public ProductSearchResult findAll() {
         StructuredQueryBuilder sb = queryManager.newStructuredQueryBuilder();
         StructuredQueryDefinition criteria = sb.collection(COLLECTION_REF);
 
         SearchHandle resultsHandle = new SearchHandle();
         queryManager.search(criteria, resultsHandle);
-        return getResultListFor(resultsHandle);
+        return toSearchResult(resultsHandle);
     }
 
     @Override
-    public List<Product> findByName(String name) {
+    public ProductSearchResult findByName(String name) {
         KeyValueQueryDefinition query = queryManager.newKeyValueDefinition();
         queryManager.setPageLength(10);
         query.put(queryManager.newElementLocator(new QName("name")), name);
         // TODO: How to restrict either to XML or JSON document types?
         SearchHandle resultsHandle = new SearchHandle();
         queryManager.search(query, resultsHandle);
-        return getResultListFor(resultsHandle);
+        return toSearchResult(resultsHandle);
     }
 
     // ~~
@@ -105,14 +106,15 @@ public class ProductRepositoryXML implements ProductRepository {
         return String.format("/products/%d.xml", sku);
     }
 
-    private List<Product> getResultListFor(SearchHandle resultsHandle) {
-        List<Product> result = new ArrayList<>();
+    private ProductSearchResult toSearchResult(SearchHandle resultsHandle) {
+        List<Product> products = new ArrayList<>();
         for (MatchDocumentSummary summary : resultsHandle.getMatchResults()) {
             JAXBHandle contentHandle = getProductHandle();
             logger.info("  * found {}", summary.getUri());
             xmlDocumentManager.read(summary.getUri(), contentHandle);
-            result.add((Product) contentHandle.get(Product.class));
+            products.add((Product) contentHandle.get(Product.class));
         }
-        return result;
+        return new ProductSearchResult(products, resultsHandle.getFacetResult("price"),
+                resultsHandle.getFacetResult("year"));
     }
 }

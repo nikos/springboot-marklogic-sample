@@ -1,7 +1,7 @@
 package de.nava.mlsample.web;
 
 import de.nava.mlsample.domain.Product;
-import de.nava.mlsample.domain.Products;
+import de.nava.mlsample.domain.ProductSearchResult;
 import de.nava.mlsample.service.ProductRepositoryXML;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,8 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.util.List;
 
 @RestController
 public class SampleRESTwithXMLController {
@@ -63,17 +61,13 @@ public class SampleRESTwithXMLController {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_XML_VALUE
     )
-    public Products searchProducts(@RequestParam(required=false, value="name") String name) {
-        List<Product> products;
+    public ProductSearchResult searchProducts(@RequestParam(required=false, value="name") String name) {
         if (StringUtils.isEmpty(name)) {
             logger.info("Lookup all {} products...", productRepositoryXML.count());
-            products = productRepositoryXML.findAll();
+            return productRepositoryXML.findAll();
         } else {
             logger.info("Lookup products by name: {}", name);
-            products = productRepositoryXML.findByName(name);
+            return productRepositoryXML.findByName(name);
         }
-        Products result = new Products();
-        result.setProducts(products);
-        return result;
     }
 }

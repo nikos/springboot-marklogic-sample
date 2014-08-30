@@ -30,7 +30,8 @@ module.config(function($routeProvider) {
 module.factory('MarkLogicService', function ($resource) {
     var service = $resource('/products/:sku.json', {id: '@sku'}, {
         getProduct:    {method: 'GET'},
-        getProducts:   {method: 'GET',  url: '/products.json', isArray: true},
+        /* Note: search results contain facets beside the products */
+        getProducts:   {method: 'GET',  url: '/products.json', isArray: false},
         addProduct:    {method: 'POST', url: '/products' },
         removeProduct: {method: 'DELETE'}
     });
@@ -84,13 +85,14 @@ var ModalInstanceCtrl = function($scope, $modalInstance, product) {
 };
 
 module.controller('ProductSearchController', function($scope, $http, $log, MarkLogicService) {
+    /* Method called by typeahead function */
     $scope.findMatchingProducts = function (val) {
         return MarkLogicService.getProducts({name: val}).$promise.then(function (result) {
             var products = [];
-            angular.forEach(result, function (item) {
+            angular.forEach(result.products, function (item) {
                 products.push(item.name);
             });
-            $log.info(' products: ' + products);
+            $log.info(" findMatchingProducts returned: ", products);
             return products;
         });
     };
