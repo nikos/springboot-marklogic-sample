@@ -21,7 +21,11 @@
                 <td><a href="#/products/{{product.sku}}">{{product.name}}</a></td>
                 <td width="30%">{{product.description}}</td>
                 <td>{{product.price | number : 2}}</td>
-                <td>{{product.categories}}</td>
+                <td>
+                    <span ng-repeat="category in product.categories" class="badge">
+                        {{category}}
+                    </span>
+                </td>
                 <td>{{product.year}}</td>
                 <td>
                     <button type="button" class="btn btn-default btn-sm" ng-click="confirmDeletion(product)">
