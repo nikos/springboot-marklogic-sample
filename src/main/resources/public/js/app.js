@@ -44,7 +44,7 @@ module.factory('MarkLogicService', function ($resource) {
 /* ======================================================================= */
 
 module.controller('ProductListController', function($scope, $modal, $log, MarkLogicService, toastr) {
-    $scope.products = MarkLogicService.getProducts();
+    $scope.searchresult = MarkLogicService.getProducts();
     $scope.totalItems = 40;  // FIXME
     $scope.currentPage = 1;  // FIXME
 
