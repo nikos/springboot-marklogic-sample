@@ -1,5 +1,6 @@
-package de.nava.mlsample;
+package de.nava.mlsample.web;
 
+import de.nava.mlsample.MarkLogicSampleApplication;
 import de.nava.mlsample.domain.Product;
 import org.junit.Test;
 import org.junit.runner.RunWith;

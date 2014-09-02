@@ -30,7 +30,7 @@ public class ProductRepositoryJSONIT {
     @Test
     public void thatFindWithDynamicQueryOptionsReturnsValidResponse() throws IOException {
         String optionsStr = FileCopyUtils.copyToString(
-                new FileReader("src/test/resources/queries/options-price-year.json"));
+                new FileReader("src/main/resources/queries/options-price-year.json"));
         // construct query
         StringHandle rawHandle = new StringHandle();
         rawHandle.withFormat(Format.JSON).set(optionsStr);

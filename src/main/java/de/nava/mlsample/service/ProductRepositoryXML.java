@@ -30,6 +30,7 @@ public class ProductRepositoryXML implements ProductRepository {
     private static final Logger logger = LoggerFactory.getLogger(ProductRepositoryXML.class);
 
     public static final String COLLECTION_REF = "/products.xml";
+    public static final int PAGE_SIZE = 10;
 
     @Autowired
     protected QueryManager queryManager;
@@ -83,12 +84,17 @@ public class ProductRepositoryXML implements ProductRepository {
     @Override
     public ProductSearchResult findByName(String name) {
         KeyValueQueryDefinition query = queryManager.newKeyValueDefinition();
-        queryManager.setPageLength(10);
+        queryManager.setPageLength(PAGE_SIZE);
         query.put(queryManager.newElementLocator(new QName("name")), name);
         // TODO: How to restrict either to XML or JSON document types?
         SearchHandle resultsHandle = new SearchHandle();
         queryManager.search(query, resultsHandle);
         return toSearchResult(resultsHandle);
+    }
+
+    @Override
+    public ProductSearchResult findByYear(int year) {
+        throw new UnsupportedOperationException("findByYear: not yet implemented");
     }
 
     // ~~

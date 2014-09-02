@@ -21,6 +21,10 @@ public interface ProductRepository {
 
     ProductSearchResult findByName(String name);
 
+    ProductSearchResult findByYear(int year);
+    //ProductSearchResult findByPriceRange(Double min, Double max);
+    //ProductSearchResult findByCategory(String category);
+
     Long count();
 
 }
