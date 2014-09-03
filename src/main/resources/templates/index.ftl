@@ -6,6 +6,7 @@
     <title>Sample web application: MarkLogic with SpringBoot</title>
     <link href="/bower/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/bower/angular-toastr/dist/angular-toastr.min.css" rel="stylesheet">
+    <link href="/bower/ng-tags-input/ng-tags-input.min.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
 </head>
 
@@ -51,6 +52,7 @@
 <script src="/bower/angular-resource/angular-resource.min.js"></script>
 <script src="/bower/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 <script src="/bower/angular-toastr/dist/angular-toastr.min.js"></script>
+<script src="/bower/ng-tags-input/ng-tags-input.min.js"></script>
 <script src="/js/app.js"></script>
 </body>
 </html>

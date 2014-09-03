@@ -1,5 +1,6 @@
 package de.nava.mlsample.domain;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.xml.sax.InputSource;
@@ -34,7 +35,7 @@ public class ProductsTests {
         try {
             Products products = (Products) unmarshaller.unmarshal(inputStream);
             assertEquals(40, products.getProducts().size());
-        } finally  {
+        } finally {
             inputStream.close();
         }
     }
@@ -44,10 +45,8 @@ public class ProductsTests {
         JAXBContext context = JAXBContext.newInstance(Product.class);
         Marshaller marshaller = context.createMarshaller();
         // create test object for serialization
-        Product p = new Product(4711L, "FooBar", 9.99,
-                                Arrays.asList(new Category("Book"), new Category("bar")));
         StringWriter sw = new StringWriter();
-        marshaller.marshal(p, sw);
+        marshaller.marshal(generateTestProduct(4711L, "FooBar"), sw);
         String xml = sw.toString();
         assertThat(xml, containsString("<product sku=\"4711\">"));
         assertThat(xml, containsString("<name>FooBar</name"));
@@ -64,7 +63,20 @@ public class ProductsTests {
         assertEquals(40, products.length);
     }
 
+    @Test
+    public void thatProductCanBeWrittenToJSON() {
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode json = mapper.convertValue(generateTestProduct(4712L, "JsonManiac"), JsonNode.class);
+        assertThat(json.toString(), containsString("\"sku\":4712"));
+        assertThat(json.toString(), containsString("\"name\":\"JsonManiac\""));
+        assertThat(json.toString(), containsString("\"categories\":[\"Book\",\"Test\"]}"));
+    }
+
+    // ~~
+
+    private Product generateTestProduct(Long sku, String name) {
+        return new Product(sku, name, 9.99,
+                Arrays.asList(new Category("Book"), new Category("Test")));
+    }
+
 }
-
-
-

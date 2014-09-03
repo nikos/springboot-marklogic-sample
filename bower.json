@@ -22,6 +22,7 @@
     "angular-resource": "~1.2.22",
     "angular-toastr": "~0.4.0",
     "angular-bootstrap": "~0.11.0",
+    "ng-tags-input": "~2.1.0",
     "bootstrap": "~3.2.0"
   }
 }

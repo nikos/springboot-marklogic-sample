@@ -1,5 +1,7 @@
 package de.nava.mlsample.domain;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlValue;
 
@@ -16,6 +18,7 @@ public class Category {
         this.text = text;
     }
 
+    @JsonValue
     @XmlValue
     public String getText() {
         return text;

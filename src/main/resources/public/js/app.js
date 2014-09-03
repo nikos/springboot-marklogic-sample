@@ -1,8 +1,12 @@
 'use strict';
 
-var module = angular.module('MarkLogicRESTClientApp',
-    ['ngResource', 'ngRoute', 'toastr', 'ui.bootstrap']
-);
+var module = angular.module('MarkLogicRESTClientApp', [
+    'ngResource',
+    'ngRoute',
+    'toastr',
+    'ui.bootstrap',
+    'ngTagsInput'
+]);
 
 module.config(function($routeProvider) {
     $routeProvider
