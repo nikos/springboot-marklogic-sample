@@ -10,9 +10,9 @@ import java.util.Collection;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Products {
 
-    @XmlElement(name = "product")
     private Collection<Product> products;
 
+    @XmlElement(name = "product")
     public Collection<Product> getProducts() {
         return products;
     }

@@ -13,8 +13,6 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.NONE)
 public class ProductSearchResult {
 
-    @XmlElementWrapper(name = "products")
-    @XmlElement(name = "product")
     private List<Product> products;
 
     private FacetValue[] yearFacets;
@@ -30,6 +28,8 @@ public class ProductSearchResult {
         this.yearFacets = years != null ? years.getFacetValues() : null;
     }
 
+    @XmlElementWrapper(name = "products")
+    @XmlElement(name = "product")
     public List<Product> getProducts() {
         return products;
     }

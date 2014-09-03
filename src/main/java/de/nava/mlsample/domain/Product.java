@@ -17,7 +17,26 @@ public class Product {
     private int year;
     private String link;
 
-    private List<String> categories = new ArrayList<>();
+    private List<Category> categories = new ArrayList<>();
+
+    // Default constructor to keep JAXB happy
+    public Product() {
+    }
+
+    public Product(Long sku, String name, Double price, List<Category> categories) {
+        this(sku, name, "N/A", price, 0, null, categories);
+    }
+
+    public Product(Long sku, String name, String description, Double price, int year, String link,
+                   List<Category> categories) {
+        this.sku = sku;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.year = year;
+        this.link = link;
+        this.categories = categories;
+    }
 
     // ~~
 
@@ -56,11 +75,11 @@ public class Product {
 
     @XmlElementWrapper(name="categories")
     @XmlElement(name="category")
-    public List<String> getCategories() {
+    public List<Category> getCategories() {
         return categories;
     }
 
-    public void setCategories(List<String> categories) {
+    public void setCategories(List<Category> categories) {
         this.categories = categories;
     }
 
