@@ -1,0 +1,21 @@
+<search:search xmlns:search='http://marklogic.com/appservices/search'>
+    <search:options>
+        <search:values name="year">
+            <search:range type="xs:gYear">
+                <search:element ns="http://marklogic.com/xdmp/json/basic" name="year"/>
+            </search:range>
+        </search:values>
+        <search:values name="categories">
+            <search:range type="xs:string">
+                <search:element ns="http://marklogic.com/xdmp/json/basic" name="categories"/>
+            </search:range>
+        </search:values>
+        <search:values name="category">
+            <search:range type="xs:string">
+                <search:facet-option>descending</search:facet-option>
+                <search:facet-option>limit=10</search:facet-option>
+                <search:path-index ns="http://marklogic.com/xdmp/json/basic">//categories/category</search:path-index>
+            </search:range>
+        </search:values>
+    </search:options>
+</search:search>

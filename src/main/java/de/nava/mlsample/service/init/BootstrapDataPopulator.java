@@ -1,8 +1,10 @@
-package de.nava.mlsample.service;
+package de.nava.mlsample.service.init;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.nava.mlsample.domain.Product;
 import de.nava.mlsample.domain.Products;
+import de.nava.mlsample.service.ProductRepositoryJSON;
+import de.nava.mlsample.service.ProductRepositoryXML;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -16,7 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * This would be the perfect place to initialize same sample data.
+ * Initialize some sample data (if collection are empty yet).
  *
  * @author Niko Schmuck
  */
@@ -45,15 +47,12 @@ public class BootstrapDataPopulator implements InitializingBean {
     private void importXMLProducts() throws JAXBException, IOException {
         JAXBContext context = JAXBContext.newInstance(Products.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
-        InputStream inputStream = Products.class.getResourceAsStream("/sampledata/products.xml");
-        try {
+        try (InputStream inputStream = Products.class.getResourceAsStream("/sampledata/products.xml")) {
             Products products = (Products) unmarshaller.unmarshal(inputStream);
             for (Product product : products.getProducts()) {
                 productRepositoryXML.add(product);
             }
             logger.info("Imported {} products to JSON store", products.getProducts().size());
-        } finally  {
-            inputStream.close();
         }
     }
 

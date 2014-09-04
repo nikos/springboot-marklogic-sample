@@ -38,8 +38,8 @@ public class MarkLogicSampleApplication {
 
     @Bean
     public DatabaseClient getDatabaseClient() {
-        // TODO: is this really required?
         try {
+            // TODO: is this really (still) required?
             // configure once before creating a client
             DatabaseClientFactory.getHandleRegistry().register(
                     JAXBHandle.newFactory(Product.class)
