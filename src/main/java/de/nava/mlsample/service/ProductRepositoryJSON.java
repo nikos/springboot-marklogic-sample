@@ -102,10 +102,9 @@ public class ProductRepositoryJSON implements ProductRepository {
         //StructuredQueryBuilder sb = queryManager.newStructuredQueryBuilder();
         //StructuredQueryDefinition simpleQueryDef = sb.collection(COLLECTION_REF);
 
-        // Java Developer Guide p. 54 using query options for dynamic search
+        // Java Developer Guide p. 54 ("Using query options for dynamic search")
         RawCombinedQueryDefinition queryDef =
                 queryManager.newRawCombinedQueryDefinitionAs(Format.XML, optionsPriceYear);
-
 
         queryDef.setCollections(COLLECTION_REF);
 
