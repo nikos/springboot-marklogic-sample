@@ -40,8 +40,8 @@ public class BootstrapQueryOptionsPopulator implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
         logger.info("~~~ Initialize query options");
         listExistingQueryOptions();
-        // TODO: fix write option problem: defineQueryOptions();
-        // testQueryOptions();
+        defineQueryOptions();
+        testQueryOptions();
     }
 
     private void listExistingQueryOptions() {
@@ -64,21 +64,15 @@ public class BootstrapQueryOptionsPopulator implements InitializingBean {
 
         // See Java Developer Guide (ch 3.11.2.2 "Install Query Options")
         optionsMgr.writeOptions("distinct-values", writeHandle);
-        /* Currently throws
-           com.marklogic.client.FailedRequestException: Local message: /config/query write failed: Bad Request. Server Message: RESTAPI-INVALIDCONTENT: (err:FOER0000) Invalid content: Operation results in invalid Options: XDMP-VALIDATEUNEXPECTED: (err:XQDY0027) validate strict { $opt } -- Invalid node: Found @ns but expected (any(lax,!())) at fn:doc("")/search:options/search:values[3]/search:range/search:path-index/@ns using schema "search.xsd"@ns(any(lax,!()))fn:doc("")/search:options/search:values[3]/search:range/search:path-index/@ns"search.xsd"
-                at com.marklogic.client.impl.JerseyServices.putPostValueImpl(JerseyServices.java:2621)
-                at com.marklogic.client.impl.JerseyServices.putValue(JerseyServices.java:2472)
-                at com.marklogic.client.impl.QueryOptionsManagerImpl.writeOptions(QueryOptionsManagerImpl.java:158)
-                at de.nava.mlsample.service.init.BootstrapQueryOptionsPopulator.defineQueryOptions(BootstrapQueryOptionsPopulator.java:66)
-        */
-        logger.info("Registered query options");
+        logger.info("Registered query options successfully.");
     }
 
     private void testQueryOptions() {
         ValuesDefinition vdef = queryManager.newValuesDefinition("category", "distinct-values");
         // TODO: Should use ValueHandle()
         StringHandle results = queryManager.values(vdef, new StringHandle());
-        logger.info("---> Results: {}", results);
+        logger.info("Execute sample query for retrieving distinct values for category");
+        logger.info("Results: {}", results);
 
         //for (CountedDistinctValue val : results.getValues()) {
         //    logger.info("   * {} ", val);

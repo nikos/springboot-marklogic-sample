@@ -11,7 +11,7 @@
     </values>
     <values name="category">
         <range type="xs:string">
-            <path-index ns="http://marklogic.com/xdmp/json/basic">//categories/category</path-index>
+            <path-index>//categories/category</path-index>
         </range>
         <values-option>descending</values-option>
         <values-option>frequency-order</values-option>
