@@ -5,6 +5,8 @@ import com.marklogic.client.admin.QueryOptionsManager;
 import com.marklogic.client.io.Format;
 import com.marklogic.client.io.QueryOptionsListHandle;
 import com.marklogic.client.io.StringHandle;
+import com.marklogic.client.io.ValuesHandle;
+import com.marklogic.client.query.CountedDistinctValue;
 import com.marklogic.client.query.QueryManager;
 import com.marklogic.client.query.RawCombinedQueryDefinition;
 import com.marklogic.client.query.ValuesDefinition;
@@ -69,14 +71,14 @@ public class BootstrapQueryOptionsPopulator implements InitializingBean {
 
     private void testQueryOptions() {
         ValuesDefinition vdef = queryManager.newValuesDefinition("category", "distinct-values");
-        // TODO: Should use ValueHandle()
-        StringHandle results = queryManager.values(vdef, new StringHandle());
+        ValuesHandle results = queryManager.values(vdef, new ValuesHandle());
         logger.info("Execute sample query for retrieving distinct values for category");
-        logger.info("Results: {}", results);
+        logger.info("Results:");
 
-        //for (CountedDistinctValue val : results.getValues()) {
-        //    logger.info("   * {} ", val);
-        //}
+        for (CountedDistinctValue val : results.getValues()) {
+            // Raw: <distinct-value frequency="40">book</distinct-value>
+            logger.info("   * {} {}", val.get("string", String.class), val.getCount());
+        }
     }
 
 }
