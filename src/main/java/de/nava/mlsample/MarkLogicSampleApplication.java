@@ -6,6 +6,9 @@ import com.marklogic.client.document.JSONDocumentManager;
 import com.marklogic.client.document.XMLDocumentManager;
 import com.marklogic.client.io.JAXBHandle;
 import com.marklogic.client.query.QueryManager;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.filter.HTTPDigestAuthFilter;
+import com.sun.jersey.api.client.filter.LoggingFilter;
 import de.nava.mlsample.domain.Product;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -67,6 +70,23 @@ public class MarkLogicSampleApplication {
         return getDatabaseClient().newJSONDocumentManager();
     }
 
+    @Bean
+    public String getMarkLogicBaseURL() {
+        return String.format("http://%s:%d", host, port);
+    }
+
+    @Bean
+    public Client getJerseyClient() {
+        Client client = Client.create();  // thread-safe
+        client.addFilter(new LoggingFilter());
+        client.addFilter(new HTTPDigestAuthFilter(username, password));
+        return client;
+    }
+
+
+    /**
+     * The entrance point to the sample application, starts Spring Boot.
+     */
     public static void main(String[] args) throws Exception {
         SpringApplication.run(MarkLogicSampleApplication.class, args);
     }
