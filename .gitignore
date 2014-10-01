@@ -1,4 +1,8 @@
+# Created by bower install
 src/main/resources/public/bower
+# Extracted from MarkLogic zip package
+src/main/resources/public/visualization-widgets
+
 local/
 *~
 
