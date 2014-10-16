@@ -15,4 +15,9 @@ public class SampleWebController {
         return "index";
     }
 
+    @RequestMapping("/viztest")
+    public String viztest(Map<String, Object> model) {
+        return "viztest";
+    }
+
 }
