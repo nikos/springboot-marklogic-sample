@@ -43,10 +43,8 @@ dependencies {
     // Adds production ready features such as metrics and monitoring
     compile("org.springframework.boot:spring-boot-starter-actuator")
     // MarkLogic Client API
-    compile("com.marklogic:client-api-java:2.0.4") {
-        exclude(group: 'ch.qos.logback', module: 'logback-core')
-        exclude(group: 'ch.qos.logback', module: 'logback-classic')
-    }
+    compile("com.marklogic:client-api-java:2.0.4")
+    // Support for common test dependencies (including JUnit, Hamcrest and Mockito)
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
