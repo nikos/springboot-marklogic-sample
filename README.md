@@ -72,7 +72,9 @@ First you need to adjust the configuration file which holds specifics about
 how your MarkLogic server can be connected to, the easiest way is by copying
 the file and modifying the connection string according to your settings:
 
-    cp src/main/resources/application-sample.yml src/main/resources/application.yml
+    vi src/main/resources/application.yml
+
+NOTE: This will be refactored to make use of spring profiles in a future version.
 
 To give the sample web application a spin, check out the sources from github 
 and start the application directly from the command-line by executing:

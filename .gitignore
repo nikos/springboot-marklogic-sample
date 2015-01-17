@@ -6,9 +6,6 @@ src/main/resources/public/visualization-widgets
 local/
 *~
 
-# Configuration, copy sample file instead
-src/*/resources/application.yml
-
 # IntelliJ IDEA project files
 .idea/
 *.iws

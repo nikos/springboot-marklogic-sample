@@ -1,0 +1,5 @@
+marklogic:
+  host: localhost
+  port: 8003
+  username: admin
+  password: test123

@@ -1,8 +1,8 @@
 marklogic:
   host: localhost
-  port: 8005
+  port: 8003
   username: admin
-  password: admin
+  password: test123
 
 spring:
   freemarker:
