@@ -44,10 +44,10 @@ web application up and running.
   database and REST endpoint from the command-line
 
 
-### Maven
+### Gradle
 
 To compile and start the application you require a Java Development Kit (JDK 7) as well
-as [Maven](http://maven.apache.org/download.cgi) (version 3). 
+as [Gradle](http://www.gradle.org/).
 
 
 ### Bower
@@ -77,16 +77,16 @@ the file and modifying the connection string according to your settings:
 To give the sample web application a spin, check out the sources from github 
 and start the application directly from the command-line by executing:
 
-    mvn spring-boot:run
+    gradle bootRun
 
 If you want to open the sources with your favorite IDE, you might want to generate project files for Eclipse resp. IntelliJ IDEA with:
 
-    mvn eclipse:eclipse
-    mvn idea:idea
+    gradle eclipse
+    gradle idea
 
-To start the app in debug mode (Port 5005 in this example), run:
+To start the app in debug mode (Port 5005 by default), run:
 
-    mvn spring-boot:run -Drun.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"mvn spring-boot:run -Drun.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"mvn spring-boot:run -Drun.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
+    gradle bootRun --debug-jvm
 
 
 ### Interact with the REST endpoints

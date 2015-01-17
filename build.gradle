@@ -1,0 +1,53 @@
+buildscript {
+    ext {
+        springBootVersion = '1.2.1.RELEASE'
+        springLoadedVersion = '1.2.0.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.springframework:springloaded:${springLoadedVersion}")
+    }
+}
+
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+apply plugin: 'war'
+
+mainClassName = "de.nava.mlsample.MarkLogicSampleApplication"
+
+springBoot {
+    classifier = 'exec'
+}
+
+war {
+    baseName = 'springboot-marklogic-sample'
+    version =  '0.1.2'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "http://developer.marklogic.com/maven2" }
+}
+
+dependencies {
+    // Support for full-stack web development, including Tomcat and spring-webmvc
+    compile("org.springframework.boot:spring-boot-starter-freemarker")
+    // Adds production ready features such as metrics and monitoring
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    // MarkLogic Client API
+    compile("com.marklogic:client-api-java:2.0.4") {
+        exclude(group: 'ch.qos.logback', module: 'logback-core')
+        exclude(group: 'ch.qos.logback', module: 'logback-classic')
+    }
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+task wrapper(type: Wrapper) { gradleVersion = '1.6' }
