@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.marklogic.client.document.JSONDocumentManager;
 import com.marklogic.client.extra.jackson.JacksonHandle;
 import com.marklogic.client.io.DocumentMetadataHandle;
-import com.marklogic.client.io.Format;
 import com.marklogic.client.io.SearchHandle;
 import com.marklogic.client.io.StringHandle;
 import com.marklogic.client.query.*;
@@ -14,10 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.FileCopyUtils;
 
-import javax.annotation.PostConstruct;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +30,7 @@ public class ProductRepositoryJSON implements ProductRepository {
     private static final Logger logger = LoggerFactory.getLogger(ProductRepositoryJSON.class);
 
     public static final String COLLECTION_REF = "/products.json";
+    public static final String OPTIONS_NAME = "price-year-bucketed";
     public static final int PAGE_SIZE = 10;
 
     @Autowired
@@ -41,14 +38,6 @@ public class ProductRepositoryJSON implements ProductRepository {
 
     @Autowired
     protected JSONDocumentManager jsonDocumentManager;
-
-    private String optionsPriceYear;
-
-    @PostConstruct
-    protected void init() throws IOException {
-        optionsPriceYear = FileCopyUtils.copyToString(
-                new FileReader("src/main/xqy/options/price-year-bucketed.xml"));
-    }
 
     @Override
     public void add(Product product) {
@@ -99,13 +88,7 @@ public class ProductRepositoryJSON implements ProductRepository {
 
     @Override
     public ProductSearchResult findAll() {
-        //StructuredQueryBuilder sb = queryManager.newStructuredQueryBuilder();
-        //StructuredQueryDefinition simpleQueryDef = sb.collection(COLLECTION_REF);
-
-        // Java Developer Guide p. 54 ("Using query options for dynamic search")
-        RawCombinedQueryDefinition queryDef =
-                queryManager.newRawCombinedQueryDefinitionAs(Format.XML, optionsPriceYear);
-
+        StringQueryDefinition queryDef = queryManager.newStringDefinition(OPTIONS_NAME);
         queryDef.setCollections(COLLECTION_REF);
 
         SearchHandle resultsHandle = new SearchHandle();
