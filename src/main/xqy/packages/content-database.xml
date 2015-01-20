@@ -3,10 +3,26 @@
         <package-database-properties>
             <range-element-indexes>
                 <range-element-index>
-                    <scalar-type>dateTime</scalar-type>
-                    <collation />
-                    <namespace-uri>http://marklogic.com/test</namespace-uri>
-                    <localname>testDateTime</localname>
+                    <scalar-type>gYear</scalar-type>
+                    <namespace-uri>http://marklogic.com/xdmp/json/basic</namespace-uri>
+                    <localname>year</localname>
+                    <collation/>
+                    <range-value-positions>false</range-value-positions>
+                    <invalid-values>reject</invalid-values>
+                </range-element-index>
+                <range-element-index>
+                    <scalar-type>double</scalar-type>
+                    <namespace-uri>http://marklogic.com/xdmp/json/basic</namespace-uri>
+                    <localname>price</localname>
+                    <collation/>
+                    <range-value-positions>false</range-value-positions>
+                    <invalid-values>reject</invalid-values>
+                </range-element-index>
+                <range-element-index>
+                    <scalar-type>string</scalar-type>
+                    <namespace-uri>http://marklogic.com/xdmp/json/basic</namespace-uri>
+                    <localname>categories</localname>
+                    <collation>http://marklogic.com/collation/</collation>
                     <range-value-positions>false</range-value-positions>
                     <invalid-values>reject</invalid-values>
                 </range-element-index>
