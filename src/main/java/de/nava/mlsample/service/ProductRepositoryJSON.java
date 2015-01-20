@@ -47,7 +47,7 @@ public class ProductRepositoryJSON implements ProductRepository {
     @PostConstruct
     protected void init() throws IOException {
         optionsPriceYear = FileCopyUtils.copyToString(
-                new FileReader("src/main/resources/queries/options-price-year.xml"));
+                new FileReader("src/main/xqy/options/price-year-bucketed.xml"));
     }
 
     @Override

@@ -1,0 +1,21 @@
+<options xmlns='http://marklogic.com/appservices/search'>
+    <constraint name='year'>
+        <range type='xs:gYear' facet='true'>
+            <facet-option>frequency-order</facet-option>
+            <facet-option>descending</facet-option>
+            <facet-option>limit=50</facet-option>
+            <element ns='http://marklogic.com/xdmp/json/basic' name='year'/>
+        </range>
+    </constraint>
+    <constraint name='price'>
+        <range type='xs:double' facet='true'>
+            <bucket lt='20.00' name='lt20.00'>&lt; 20.00</bucket>
+            <bucket ge='20.00' lt='40.00' name='20-40'>20-40</bucket>
+            <bucket ge='40.00' name='40.00'>&gt;= 40</bucket>
+            <facet-option>item-order</facet-option>
+            <facet-option>ascending</facet-option>
+            <facet-option>limit=50</facet-option>
+            <element ns='http://marklogic.com/xdmp/json/basic' name='price'/>
+        </range>
+    </constraint>
+</options>

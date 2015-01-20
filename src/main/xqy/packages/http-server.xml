@@ -1,0 +1,13 @@
+<package-http-server xmlns="http://marklogic.com/manage/package/servers">
+  <config>
+    <package-http-properties>
+      <authentication>digest</authentication>
+      <error-handler>/MarkLogic/rest-api/error-handler.xqy</error-handler>
+      <url-rewriter>/MarkLogic/rest-api/rewriter.xqy</url-rewriter>
+    </package-http-properties>
+    <links>
+      <modules-database>sample-project-modules</modules-database>
+      <default-user>nobody</default-user>
+    </links>
+  </config>
+</package-http-server>

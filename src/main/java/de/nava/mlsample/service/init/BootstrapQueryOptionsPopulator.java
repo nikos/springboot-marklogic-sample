@@ -22,10 +22,13 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * Initialize query options (surely roxy would be a more convenient solution).
+ * Initialize query options.
+ *
+ * TODO: will be soon obsolete when ml-gradle is fully integrated
  *
  * @author Niko Schmuck
  */
+@Deprecated
 @Service
 public class BootstrapQueryOptionsPopulator implements InitializingBean {
 
@@ -59,7 +62,7 @@ public class BootstrapQueryOptionsPopulator implements InitializingBean {
                 databaseClient.newServerConfigManager().newQueryOptionsManager();
 
         String xmlOptions = FileCopyUtils.copyToString(
-                new FileReader("src/main/resources/queries/options-distinct-values.xml"));
+                new FileReader("src/main/xqy/options/distinct-values.xml"));
         StringHandle writeHandle = new StringHandle(xmlOptions);
         RawCombinedQueryDefinition queryDef =
                 queryManager.newRawCombinedQueryDefinitionAs(Format.XML, xmlOptions);

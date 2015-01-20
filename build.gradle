@@ -2,14 +2,17 @@ buildscript {
     ext {
         springBootVersion = '1.2.1.RELEASE'
         springLoadedVersion = '1.2.0.RELEASE'
+        mlGradleVersion = '0.9.6'
     }
     repositories {
-        mavenLocal()
         mavenCentral()
+        maven {url "http://developer.marklogic.com/maven2/"}
+        maven {url "http://rjrudin.github.io/marklogic-java/releases"}
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath("org.springframework:springloaded:${springLoadedVersion}")
+        classpath("com.marklogic:ml-gradle:${mlGradleVersion}")
     }
 }
 
@@ -19,6 +22,7 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 apply plugin: 'war'
+apply plugin: 'ml-gradle'
 
 mainClassName = "de.nava.mlsample.MarkLogicSampleApplication"
 
@@ -32,9 +36,9 @@ war {
 }
 
 repositories {
-    mavenLocal()
     mavenCentral()
-    maven { url "http://developer.marklogic.com/maven2" }
+    maven {url "http://developer.marklogic.com/maven2"}
+    maven {url "http://rjrudin.github.io/marklogic-java/releases"}
 }
 
 dependencies {
@@ -46,6 +50,38 @@ dependencies {
     compile("com.marklogic:client-api-java:2.0.4")
     // Support for common test dependencies (including JUnit, Hamcrest and Mockito)
     testCompile("org.springframework.boot:spring-boot-starter-test")
+    // For triggering CORB on MarkLogic Server
+    runtime("com.marklogic:corb:1.0") 
+    // inclusion of ml-java will make direct reference to XCC obsolete
+    runtime("com.marklogic:marklogic-xcc:7.0.4")
 }
 
 task wrapper(type: Wrapper) { gradleVersion = '1.6' }
+
+ext {
+    // This property is used for grouping all the custom tasks in this file so that they appear together when "gradle tasks" is run.
+    taskGroup = "Sample project" // TODO: "tasks" already prepended
+}
+
+/*
+ * This is an example of both a custom Gradle task and an easy way of invoking Corb. This depends on "classes" to ensure
+ * that the Corb dependency is retrieved and on "mlLoadModules" to ensure that the Corb uris/transform modules are
+ * loaded.
+ */
+
+task corb(dependsOn: ['classes', 'mlLoadModules'], type: JavaExec, group: taskGroup) {
+    main = 'com.marklogic.developer.corb.Manager'
+    classpath = sourceSets.main.runtimeClasspath
+    args = [mlAppConfig.xccUrl, '""', 'transform.xqy', '4', 'uris.xqy', '/ext/corb/', 'springboot-demo-modules', 'false']
+}
+
+
+task createUser(type: com.marklogic.gradle.task.security.CreateUserTask, group: taskGroup) {
+    username = "sample-project-user"
+    userDescription = "Sample project user"
+    password = "password"
+    roleNames = ["alert-user", "rest-admin"]
+    collections = ["default-collection"]
+    permissionRoles = ["rest-reader", "rest-writer"]
+    permissionCapabilities = ["read", "update"]
+}

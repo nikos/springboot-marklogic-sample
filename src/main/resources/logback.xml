@@ -2,4 +2,5 @@
 <configuration>
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <logger name="com.marklogic.client" level="INFO"/>
+    <logger name="com.marklogic.client.io" level="WARN" additivity="false" />
 </configuration>

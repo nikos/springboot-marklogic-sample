@@ -64,6 +64,10 @@ public class SampleWebControllerIT {
 
     @Test
     public void thatProductsAsJSONResponds() {
+        ResponseEntity<String> response = template.getForEntity(getBaseUrl() + "/products.json", String.class);
+        System.out.println("=========AAA\n");
+        System.out.println(response);
+        System.out.println("=========ZZZ\n");
         ResponseEntity<Product[]> entity = template.getForEntity(getBaseUrl() + "/products.json", Product[].class);
         assertEquals(HttpStatus.OK, entity.getStatusCode());
         assertEquals(10, entity.getBody().length);
