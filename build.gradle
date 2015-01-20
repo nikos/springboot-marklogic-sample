@@ -63,12 +63,14 @@ ext {
     taskGroup = "Sample project" // TODO: "tasks" already prepended
 }
 
+// Path to definition of database indexes
+mlMergeDatabasePackages.mergePackageFilePaths = ["src/main/xqy/packages/content-database.xml"]
+
 /*
  * This is an example of both a custom Gradle task and an easy way of invoking Corb. This depends on "classes" to ensure
  * that the Corb dependency is retrieved and on "mlLoadModules" to ensure that the Corb uris/transform modules are
  * loaded.
  */
-
 task corb(dependsOn: ['classes', 'mlLoadModules'], type: JavaExec, group: taskGroup) {
     main = 'com.marklogic.developer.corb.Manager'
     classpath = sourceSets.main.runtimeClasspath
