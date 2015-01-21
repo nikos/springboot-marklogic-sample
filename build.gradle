@@ -2,7 +2,7 @@ buildscript {
     ext {
         springBootVersion = '1.2.1.RELEASE'
         springLoadedVersion = '1.2.0.RELEASE'
-        mlGradleVersion = '0.9.6'
+        mlGradleVersion = '0.9.7'
     }
     repositories {
         mavenCentral()
@@ -41,6 +41,11 @@ repositories {
     maven {url "http://rjrudin.github.io/marklogic-java/releases"}
 }
 
+// Specify own classpath for running corb jobs via Gradle tasks
+configurations {
+    runtimeCorb
+}
+
 dependencies {
     // Support for full-stack web development, including Tomcat and spring-webmvc
     compile("org.springframework.boot:spring-boot-starter-freemarker")
@@ -51,9 +56,9 @@ dependencies {
     // Support for common test dependencies (including JUnit, Hamcrest and Mockito)
     testCompile("org.springframework.boot:spring-boot-starter-test")
     // For triggering CORB on MarkLogic Server
-    runtime("com.marklogic:corb:1.0") 
+    runtimeCorb("com.marklogic:corb:1.0")
     // inclusion of ml-java will make direct reference to XCC obsolete
-    runtime("com.marklogic:marklogic-xcc:7.0.4")
+    runtimeCorb("com.marklogic:marklogic-xcc:7.0.4")
 }
 
 task wrapper(type: Wrapper) { gradleVersion = '1.6' }
@@ -71,9 +76,9 @@ mlMergeDatabasePackages.mergePackageFilePaths = ["src/main/xqy/packages/content-
  * that the Corb dependency is retrieved and on "mlLoadModules" to ensure that the Corb uris/transform modules are
  * loaded.
  */
-task corb(dependsOn: ['classes', 'mlLoadModules'], type: JavaExec, group: taskGroup) {
+task corb(dependsOn: ['mlLoadModules'], type: JavaExec, group: taskGroup) {
     main = 'com.marklogic.developer.corb.Manager'
-    classpath = sourceSets.main.runtimeClasspath
+    classpath = configurations.runtimeCorb
     args = [mlAppConfig.xccUrl, '""', 'transform.xqy', '4', 'uris.xqy', '/ext/corb/', 'springboot-demo-modules', 'false']
 }
 
