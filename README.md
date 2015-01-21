@@ -39,9 +39,10 @@ web application up and running.
 
 * [Install, start and setup](http://docs.marklogic.com/guide/installation/procedures#id_28962) your MarkLogic server instance,
    
-* [Create a database and an associated REST API instance](http://developer.marklogic.com/learn/rest/setup),
-  you might consider leveraging [Roxy](https://github.com/marklogic/roxy) enabling you to easily spin up a new
-  database and REST endpoint from the command-line
+* Bootstraping the database and creating an associated REST API instance (that will run on port 8110, see ```gradle.properties```)
+  is handled by the gradle plug-in [ml-gradle](https://github.com/rjrudin/marklogic-java/wiki/ml-gradle-Overview).
+  This allows you to execute from the command-line ```gradle mlDeploy``` initially,
+  the "deployment" also takes care of importing the required search options.
 
 
 ### Gradle
