@@ -39,11 +39,14 @@ repositories {
     mavenCentral()
     maven {url "http://developer.marklogic.com/maven2"}
     maven {url "http://rjrudin.github.io/marklogic-java/releases"}
+    // for resolving mlcp -> hadoop
+    maven {url "http://repository.cloudera.com/artifactory/cloudera-repos/"}
 }
 
-// Specify own classpath for running corb jobs via Gradle tasks
+// Specify own classpath for running corb and mlcp jobs via Gradle tasks
 configurations {
     runtimeCorb
+    mlcp
 }
 
 dependencies {
@@ -59,6 +62,9 @@ dependencies {
     runtimeCorb("com.marklogic:corb:1.0")
     // inclusion of ml-java will make direct reference to XCC obsolete
     runtimeCorb("com.marklogic:marklogic-xcc:7.0.4")
+    // content pump
+    mlcp("com.marklogic:mlcp-Hadoop2:1.2-3") { exclude module:"commons-modeler" }
+    mlcp("commons-modeler:commons-modeler:2.0") { transitive = false }
 }
 
 task wrapper(type: Wrapper) { gradleVersion = '1.6' }
@@ -91,4 +97,13 @@ task createUser(type: com.marklogic.gradle.task.security.CreateUserTask, group: 
     collections = ["default-collection"]
     permissionRoles = ["rest-reader", "rest-writer"]
     permissionCapabilities = ["read", "update"]
+}
+
+// For documentation of the the mlcp options please see the original documentation
+// http://docs.marklogic.com/guide/ingestion/content-pump#id_87699
+task importViaContentPump(type: com.marklogic.gradle.task.MlcpTask, group: taskGroup) {
+    classpath = configurations.mlcp
+    command = "IMPORT"
+    input_file_path = "/path/to/file"
+    args = ["-document_type", "text"]
 }
