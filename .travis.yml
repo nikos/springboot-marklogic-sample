@@ -1,3 +1,4 @@
 language: java
 
-script: TERM=dumb gradle check --debug
+# TODO: Only exclude integration tests (*IT)
+script: TERM=dumb gradle check -x test --debug
