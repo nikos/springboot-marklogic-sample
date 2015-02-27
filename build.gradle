@@ -1,8 +1,8 @@
 buildscript {
     ext {
-        springBootVersion = '1.2.1.RELEASE'
+        springBootVersion = '1.2.2.RELEASE'
         springLoadedVersion = '1.2.0.RELEASE'
-        mlGradleVersion = '0.9.7'
+        mlGradleVersion = '0.9.9'
     }
     repositories {
         mavenCentral()
@@ -24,6 +24,7 @@ apply plugin: 'spring-boot'
 apply plugin: 'war'
 apply plugin: 'ml-gradle'
 
+sourceCompatibility = 1.7
 mainClassName = "de.nava.mlsample.MarkLogicSampleApplication"
 
 springBoot {
@@ -32,7 +33,7 @@ springBoot {
 
 war {
     baseName = 'springboot-marklogic-sample'
-    version =  '0.1.2'
+    version =  '0.1.3'
 }
 
 repositories {
