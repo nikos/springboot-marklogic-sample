@@ -1,5 +1,7 @@
 # SpringBoot MarkLogic Sample [![Build Status](https://travis-ci.org/nikos/springboot-marklogic-sample.svg?branch=master)](http://travis-ci.org/nikos/springboot-marklogic-sample)
 
+UPDATE (2015-04-27): If you are interested in a more complex / real-world example, you might want to checkout the [WM14](https://github.com/jojrg/wm14) demo application. This application is built on the same technology stack and similar ideas, but uses player (plus tweets by the players) and match data from the Soccer Worldcup 2014 in Brazil to demonstrate integrating a Java middle-tier. 
+
 ## Goal
 
 Build a simple (thin) web application with [Spring Boot](http://projects.spring.io/spring-boot/) to 
